@@ -162,21 +162,30 @@ p, li, figcaption { text-wrap: pretty; }
 .section--dark .section__lead { color: var(--muted); }
 
 /* Works */
-.works { display: grid; gap: 1.5rem; }
-.project { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-.project button { font: inherit; cursor: pointer; }
-.project__gallery { display: grid; grid-template-columns: 2fr 1fr; gap: 6px; padding: 6px; }
-.project__main, .project__thumb { position: relative; display: block; padding: 0; border: 0; border-radius: 12px; overflow: hidden; background: var(--bg-alt); }
-.project__main img, .project__thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
-.project__main:hover img, .project__thumb:hover img { transform: scale(1.04); }
-.project__main { aspect-ratio: 16 / 10; }
-.project__thumbs { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; }
-.project__thumb { min-height: 0; }
-.project__thumb img { position: absolute; inset: 0; }
-.project__more { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(7, 21, 34, .55); color: #fff; font-weight: 800; font-size: 1.3rem; }
-.project__info { padding: 1.2rem 1.5rem 1.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 2rem; }
-.project__info h3 { font-size: 1.25rem; margin: 0; flex-basis: 100%; }
-.project__info p { margin: 0; color: var(--muted); flex: 1 1 380px; }
+.works { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.boat { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+.boat__slider { position: relative; aspect-ratio: 4 / 3; background: var(--bg-alt); overflow: hidden; }
+.boat__track { position: absolute; inset: 0; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.boat__track::-webkit-scrollbar { display: none; }
+.boat__track img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start; cursor: zoom-in; }
+.boat__nav { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .9); color: var(--ink); font-size: 1.4rem; line-height: 1; cursor: pointer; display: grid; place-items: center; box-shadow: 0 2px 8px rgba(0, 0, 0, .2); opacity: 0; transition: opacity .2s; }
+.boat__nav--prev { left: 8px; }
+.boat__nav--next { right: 8px; }
+.boat__slider:hover .boat__nav, .boat__nav:focus-visible { opacity: 1; }
+.boat__count { position: absolute; right: 8px; bottom: 8px; background: rgba(7, 21, 34, .6); color: #fff; font-size: .78rem; font-weight: 700; padding: .15rem .5rem; border-radius: 999px; pointer-events: none; }
+.boat__info { padding: .9rem 1rem 1.1rem; }
+.boat__info h3 { font-size: 1rem; margin: 0 0 .35rem; }
+.boat__info p { margin: 0; color: var(--muted); font-size: .85rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+@media (hover: none) { .boat__nav { opacity: 1; width: 30px; height: 30px; font-size: 1.2rem; } }
+@media (max-width: 1080px) { .works { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) {
+  .works { gap: .6rem; }
+  .boat__info { padding: .6rem .7rem .8rem; }
+  .boat__info h3 { font-size: .88rem; margin: 0; }
+  .boat__info p { display: none; }
+  .boat__nav { width: 26px; height: 26px; font-size: 1rem; }
+  .boat__nav--prev { left: 4px; } .boat__nav--next { right: 4px; }
+}
 
 /* Lightbox */
 .lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(7, 21, 34, .94); display: none; align-items: center; justify-content: center; }
@@ -189,10 +198,6 @@ p, li, figcaption { text-wrap: pretty; }
 .lightbox__next { right: 16px; top: 50%; transform: translateY(-50%); }
 .lightbox__count { pointer-events: none; position: absolute; bottom: 22px; left: 0; right: 0; text-align: center; color: rgba(255, 255, 255, .75); font-weight: 600; }
 @media (max-width: 860px) {
-  .project__gallery { grid-template-columns: 1fr; }
-  .project__thumbs { grid-template-columns: repeat(4, 1fr); grid-template-rows: auto; }
-  .project__thumb { aspect-ratio: 1; }
-  .project__more { font-size: .95rem; }
   .lightbox__prev, .lightbox__next { top: auto; bottom: 8px; transform: none; }
 }
 
@@ -335,68 +340,105 @@ p, li, figcaption { text-wrap: pretty; }
       <h2 class="section__title">Наши работы</h2>
       <p class="section__lead">Больше фото и&nbsp;видео пришлём в&nbsp;MAX&nbsp;— просто напишите нам.</p>
       <div class="works">
-        <article class="project" data-photos="images/works/boat1-main.jpg,images/works/boat1-15.jpg,images/works/boat1-4.jpg,images/works/boat1-12.jpg,images/works/boat1-14.jpg,images/works/boat1-10.jpg,images/works/boat1-1.jpg,images/works/boat1-2.jpg,images/works/boat1-3.jpg,images/works/boat1-5.jpg,images/works/boat1-6.jpg,images/works/boat1-7.jpg,images/works/boat1-8.jpg,images/works/boat1-9.jpg,images/works/boat1-11.jpg,images/works/boat1-13.jpg">
-          <div class="project__gallery">
-            <button type="button" class="project__main" data-index="0"><img src="images/works/boat1-main.jpg" alt="Кокпит лодки после доработки" loading="lazy" width="1600" height="969"></button>
-            <div class="project__thumbs">
-            <button type="button" class="project__thumb" data-index="1"><img src="images/works/boat1-15-thumb.jpg" alt="Борт: свет и проходные элементы" loading="lazy" width="640" height="480"></button>
-            <button type="button" class="project__thumb" data-index="2"><img src="images/works/boat1-4-thumb.jpg" alt="Держатели удилищ" loading="lazy" width="640" height="480"></button>
-            <button type="button" class="project__thumb" data-index="3"><img src="images/works/boat1-12-thumb.jpg" alt="Панель переключателей" loading="lazy" width="640" height="480"></button>
-            <button type="button" class="project__thumb" data-index="4"><img src="images/works/boat1-14-thumb.jpg" alt="Аккумуляторный отсек" loading="lazy" width="640" height="480"><span class="project__more">+11&nbsp;фото</span></button>
+        <article class="boat" data-photos="images/works/boat1-main.jpg,images/works/boat1-15.jpg,images/works/boat1-4.jpg,images/works/boat1-12.jpg,images/works/boat1-14.jpg,images/works/boat1-10.jpg,images/works/boat1-1.jpg,images/works/boat1-2.jpg,images/works/boat1-3.jpg,images/works/boat1-5.jpg,images/works/boat1-6.jpg,images/works/boat1-7.jpg,images/works/boat1-8.jpg,images/works/boat1-9.jpg,images/works/boat1-11.jpg,images/works/boat1-13.jpg">
+          <div class="boat__slider">
+            <div class="boat__track">
+              <img src="images/works/boat1-main-thumb.jpg" alt="Комплексная доработка лодки, фото 1" loading="lazy" data-index="0" width="640" height="480">
+              <img src="images/works/boat1-15-thumb.jpg" alt="Комплексная доработка лодки, фото 2" loading="lazy" data-index="1" width="640" height="480">
+              <img src="images/works/boat1-4-thumb.jpg" alt="Комплексная доработка лодки, фото 3" loading="lazy" data-index="2" width="640" height="480">
+              <img src="images/works/boat1-12-thumb.jpg" alt="Комплексная доработка лодки, фото 4" loading="lazy" data-index="3" width="640" height="480">
+              <img src="images/works/boat1-14-thumb.jpg" alt="Комплексная доработка лодки, фото 5" loading="lazy" data-index="4" width="640" height="480">
+              <img src="images/works/boat1-10-thumb.jpg" alt="Комплексная доработка лодки, фото 6" loading="lazy" data-index="5" width="640" height="480">
+              <img src="images/works/boat1-1-thumb.jpg" alt="Комплексная доработка лодки, фото 7" loading="lazy" data-index="6" width="640" height="480">
+              <img src="images/works/boat1-2-thumb.jpg" alt="Комплексная доработка лодки, фото 8" loading="lazy" data-index="7" width="640" height="480">
+              <img src="images/works/boat1-3-thumb.jpg" alt="Комплексная доработка лодки, фото 9" loading="lazy" data-index="8" width="640" height="480">
+              <img src="images/works/boat1-5-thumb.jpg" alt="Комплексная доработка лодки, фото 10" loading="lazy" data-index="9" width="640" height="480">
+              <img src="images/works/boat1-6-thumb.jpg" alt="Комплексная доработка лодки, фото 11" loading="lazy" data-index="10" width="640" height="480">
+              <img src="images/works/boat1-7-thumb.jpg" alt="Комплексная доработка лодки, фото 12" loading="lazy" data-index="11" width="640" height="480">
+              <img src="images/works/boat1-8-thumb.jpg" alt="Комплексная доработка лодки, фото 13" loading="lazy" data-index="12" width="640" height="480">
+              <img src="images/works/boat1-9-thumb.jpg" alt="Комплексная доработка лодки, фото 14" loading="lazy" data-index="13" width="640" height="480">
+              <img src="images/works/boat1-11-thumb.jpg" alt="Комплексная доработка лодки, фото 15" loading="lazy" data-index="14" width="640" height="480">
+              <img src="images/works/boat1-13-thumb.jpg" alt="Комплексная доработка лодки, фото 16" loading="lazy" data-index="15" width="640" height="480">
             </div>
+            <button type="button" class="boat__nav boat__nav--prev" aria-label="Предыдущее фото">‹</button>
+            <button type="button" class="boat__nav boat__nav--next" aria-label="Следующее фото">›</button>
+            <span class="boat__count">1 / 16</span>
           </div>
-          <div class="project__info">
+          <div class="boat__info">
             <h3>Комплексная доработка лодки</h3>
             <p>Новая проводка и&nbsp;панели переключателей, установка приборов и&nbsp;картплоттера, аккумуляторный отсек, держатели удилищ, освещение.</p>
-            <button type="button" class="btn btn--ghost" data-index="0">Смотреть все фото (16)</button>
           </div>
         </article>
-        <article class="project" data-photos="images/works/boat2-9.jpg,images/works/boat2-1.jpg,images/works/boat2-12.jpg,images/works/boat2-16.jpg,images/works/boat2-4.jpg,images/works/boat2-2.jpg,images/works/boat2-3.jpg,images/works/boat2-5.jpg,images/works/boat2-6.jpg,images/works/boat2-7.jpg,images/works/boat2-8.jpg,images/works/boat2-10.jpg,images/works/boat2-11.jpg,images/works/boat2-13.jpg,images/works/boat2-14.jpg,images/works/boat2-15.jpg">
-          <div class="project__gallery">
-            <button type="button" class="project__main" data-index="0"><img src="images/works/boat2-9.jpg" alt="Лодка «Салют» после доработки" loading="lazy" width="1600" height="1200"></button>
-            <div class="project__thumbs">
-            <button type="button" class="project__thumb" data-index="1"><img src="images/works/boat2-1-thumb.jpg" alt="Приборная панель с картплоттером" loading="lazy" width="640" height="480"></button>
-            <button type="button" class="project__thumb" data-index="2"><img src="images/works/boat2-12-thumb.jpg" alt="Носовая часть лодки" loading="lazy" width="640" height="480"></button>
-            <button type="button" class="project__thumb" data-index="3"><img src="images/works/boat2-16-thumb.jpg" alt="Блок предохранителей с подписанными линиями" loading="lazy" width="640" height="480"></button>
-            <button type="button" class="project__thumb" data-index="4"><img src="images/works/boat2-4-thumb.jpg" alt="Рундук с палубным душем" loading="lazy" width="640" height="480"><span class="project__more">+11&nbsp;фото</span></button>
+        <article class="boat" data-photos="images/works/boat2-9.jpg,images/works/boat2-1.jpg,images/works/boat2-12.jpg,images/works/boat2-16.jpg,images/works/boat2-4.jpg,images/works/boat2-2.jpg,images/works/boat2-3.jpg,images/works/boat2-5.jpg,images/works/boat2-6.jpg,images/works/boat2-7.jpg,images/works/boat2-8.jpg,images/works/boat2-10.jpg,images/works/boat2-11.jpg,images/works/boat2-13.jpg,images/works/boat2-14.jpg,images/works/boat2-15.jpg">
+          <div class="boat__slider">
+            <div class="boat__track">
+              <img src="images/works/boat2-9-thumb.jpg" alt="Доработка лодки «Салют», фото 1" loading="lazy" data-index="0" width="640" height="480">
+              <img src="images/works/boat2-1-thumb.jpg" alt="Доработка лодки «Салют», фото 2" loading="lazy" data-index="1" width="640" height="480">
+              <img src="images/works/boat2-12-thumb.jpg" alt="Доработка лодки «Салют», фото 3" loading="lazy" data-index="2" width="640" height="480">
+              <img src="images/works/boat2-16-thumb.jpg" alt="Доработка лодки «Салют», фото 4" loading="lazy" data-index="3" width="640" height="480">
+              <img src="images/works/boat2-4-thumb.jpg" alt="Доработка лодки «Салют», фото 5" loading="lazy" data-index="4" width="640" height="480">
+              <img src="images/works/boat2-2-thumb.jpg" alt="Доработка лодки «Салют», фото 6" loading="lazy" data-index="5" width="640" height="480">
+              <img src="images/works/boat2-3-thumb.jpg" alt="Доработка лодки «Салют», фото 7" loading="lazy" data-index="6" width="640" height="480">
+              <img src="images/works/boat2-5-thumb.jpg" alt="Доработка лодки «Салют», фото 8" loading="lazy" data-index="7" width="640" height="480">
+              <img src="images/works/boat2-6-thumb.jpg" alt="Доработка лодки «Салют», фото 9" loading="lazy" data-index="8" width="640" height="480">
+              <img src="images/works/boat2-7-thumb.jpg" alt="Доработка лодки «Салют», фото 10" loading="lazy" data-index="9" width="640" height="480">
+              <img src="images/works/boat2-8-thumb.jpg" alt="Доработка лодки «Салют», фото 11" loading="lazy" data-index="10" width="640" height="480">
+              <img src="images/works/boat2-10-thumb.jpg" alt="Доработка лодки «Салют», фото 12" loading="lazy" data-index="11" width="640" height="480">
+              <img src="images/works/boat2-11-thumb.jpg" alt="Доработка лодки «Салют», фото 13" loading="lazy" data-index="12" width="640" height="480">
+              <img src="images/works/boat2-13-thumb.jpg" alt="Доработка лодки «Салют», фото 14" loading="lazy" data-index="13" width="640" height="480">
+              <img src="images/works/boat2-14-thumb.jpg" alt="Доработка лодки «Салют», фото 15" loading="lazy" data-index="14" width="640" height="480">
+              <img src="images/works/boat2-15-thumb.jpg" alt="Доработка лодки «Салют», фото 16" loading="lazy" data-index="15" width="640" height="480">
             </div>
+            <button type="button" class="boat__nav boat__nav--prev" aria-label="Предыдущее фото">‹</button>
+            <button type="button" class="boat__nav boat__nav--next" aria-label="Следующее фото">›</button>
+            <span class="boat__count">1 / 16</span>
           </div>
-          <div class="project__info">
+          <div class="boat__info">
             <h3>Доработка лодки «Салют»</h3>
             <p>Приборная панель с&nbsp;картплоттером и&nbsp;приборами, блок предохранителей с&nbsp;подписанными линиями, эхолот и&nbsp;NMEA&nbsp;2000, палубный душ, розетка 12&nbsp;В, свет в&nbsp;кокпите.</p>
-            <button type="button" class="btn btn--ghost" data-index="0">Смотреть все фото (16)</button>
           </div>
         </article>
-        <article class="project" data-photos="images/works/boat3-5.jpg,images/works/boat3-4.jpg,images/works/boat3-1.jpg,images/works/boat3-2.jpg,images/works/boat3-3.jpg">
-          <div class="project__gallery">
-            <button type="button" class="project__main" data-index="0"><img src="images/works/boat3-5.jpg" alt="Кокпит лодки" loading="lazy" width="1600" height="1200"></button>
-            <div class="project__thumbs">
-            <button type="button" class="project__thumb" data-index="1"><img src="images/works/boat3-4-thumb.jpg" alt="Носовая часть лодки" loading="lazy" width="640" height="480"></button>
-            <button type="button" class="project__thumb" data-index="2"><img src="images/works/boat3-1-thumb.jpg" alt="Аккумуляторный отсек с зарядным устройством" loading="lazy" width="640" height="480"></button>
-            <button type="button" class="project__thumb" data-index="3"><img src="images/works/boat3-2-thumb.jpg" alt="Аккумуляторный отсек, крепление АКБ" loading="lazy" width="640" height="480"></button>
-            <button type="button" class="project__thumb" data-index="4"><img src="images/works/boat3-3-thumb.jpg" alt="Лодка на прицепе" loading="lazy" width="640" height="480"></button>
+        <article class="boat" data-photos="images/works/boat3-5.jpg,images/works/boat3-4.jpg,images/works/boat3-1.jpg,images/works/boat3-2.jpg,images/works/boat3-3.jpg">
+          <div class="boat__slider">
+            <div class="boat__track">
+              <img src="images/works/boat3-5-thumb.jpg" alt="Аккумуляторный отсек и зарядка, фото 1" loading="lazy" data-index="0" width="640" height="480">
+              <img src="images/works/boat3-4-thumb.jpg" alt="Аккумуляторный отсек и зарядка, фото 2" loading="lazy" data-index="1" width="640" height="480">
+              <img src="images/works/boat3-1-thumb.jpg" alt="Аккумуляторный отсек и зарядка, фото 3" loading="lazy" data-index="2" width="640" height="480">
+              <img src="images/works/boat3-2-thumb.jpg" alt="Аккумуляторный отсек и зарядка, фото 4" loading="lazy" data-index="3" width="640" height="480">
+              <img src="images/works/boat3-3-thumb.jpg" alt="Аккумуляторный отсек и зарядка, фото 5" loading="lazy" data-index="4" width="640" height="480">
             </div>
+            <button type="button" class="boat__nav boat__nav--prev" aria-label="Предыдущее фото">‹</button>
+            <button type="button" class="boat__nav boat__nav--next" aria-label="Следующее фото">›</button>
+            <span class="boat__count">1 / 5</span>
           </div>
-          <div class="project__info">
+          <div class="boat__info">
             <h3>Аккумуляторный отсек и&nbsp;зарядка</h3>
             <p>Установка аккумуляторов, зарядного устройства и&nbsp;преобразователя напряжения, надёжное крепление и&nbsp;аккуратная разводка проводов.</p>
-            <button type="button" class="btn btn--ghost" data-index="0">Смотреть все фото (5)</button>
           </div>
         </article>
-        <article class="project" data-photos="images/works/boat4-6.jpg,images/works/boat4-1.jpg,images/works/boat4-4.jpg,images/works/boat4-7.jpg,images/works/boat4-2.jpg,images/works/boat4-3.jpg,images/works/boat4-5.jpg,images/works/boat4-8.jpg,images/works/boat4-9.jpg,images/works/boat4-10.jpg,images/works/boat4-11.jpg,images/works/boat4-12.jpg">
-          <div class="project__gallery">
-            <button type="button" class="project__main" data-index="0"><img src="images/works/boat4-6.jpg" alt="Носовая часть катера с рисунком орла" loading="lazy" width="1600" height="1200"></button>
-            <div class="project__thumbs">
-            <button type="button" class="project__thumb" data-index="1"><img src="images/works/boat4-1-thumb.jpg" alt="Кокпит с оранжевыми вставками" loading="lazy" width="640" height="480"></button>
-            <button type="button" class="project__thumb" data-index="2"><img src="images/works/boat4-4-thumb.jpg" alt="Приборная панель с картплоттером" loading="lazy" width="640" height="480"></button>
-            <button type="button" class="project__thumb" data-index="3"><img src="images/works/boat4-7-thumb.jpg" alt="Палуба с подсветкой" loading="lazy" width="640" height="480"></button>
-            <button type="button" class="project__thumb" data-index="4"><img src="images/works/boat4-2-thumb.jpg" alt="Носовой отсек" loading="lazy" width="640" height="480"><span class="project__more">+7&nbsp;фото</span></button>
+        <article class="boat" data-photos="images/works/boat4-6.jpg,images/works/boat4-1.jpg,images/works/boat4-4.jpg,images/works/boat4-7.jpg,images/works/boat4-2.jpg,images/works/boat4-3.jpg,images/works/boat4-5.jpg,images/works/boat4-8.jpg,images/works/boat4-9.jpg,images/works/boat4-10.jpg,images/works/boat4-11.jpg,images/works/boat4-12.jpg">
+          <div class="boat__slider">
+            <div class="boat__track">
+              <img src="images/works/boat4-6-thumb.jpg" alt="Комплексный тюнинг катера, фото 1" loading="lazy" data-index="0" width="640" height="480">
+              <img src="images/works/boat4-1-thumb.jpg" alt="Комплексный тюнинг катера, фото 2" loading="lazy" data-index="1" width="640" height="480">
+              <img src="images/works/boat4-4-thumb.jpg" alt="Комплексный тюнинг катера, фото 3" loading="lazy" data-index="2" width="640" height="480">
+              <img src="images/works/boat4-7-thumb.jpg" alt="Комплексный тюнинг катера, фото 4" loading="lazy" data-index="3" width="640" height="480">
+              <img src="images/works/boat4-2-thumb.jpg" alt="Комплексный тюнинг катера, фото 5" loading="lazy" data-index="4" width="640" height="480">
+              <img src="images/works/boat4-3-thumb.jpg" alt="Комплексный тюнинг катера, фото 6" loading="lazy" data-index="5" width="640" height="480">
+              <img src="images/works/boat4-5-thumb.jpg" alt="Комплексный тюнинг катера, фото 7" loading="lazy" data-index="6" width="640" height="480">
+              <img src="images/works/boat4-8-thumb.jpg" alt="Комплексный тюнинг катера, фото 8" loading="lazy" data-index="7" width="640" height="480">
+              <img src="images/works/boat4-9-thumb.jpg" alt="Комплексный тюнинг катера, фото 9" loading="lazy" data-index="8" width="640" height="480">
+              <img src="images/works/boat4-10-thumb.jpg" alt="Комплексный тюнинг катера, фото 10" loading="lazy" data-index="9" width="640" height="480">
+              <img src="images/works/boat4-11-thumb.jpg" alt="Комплексный тюнинг катера, фото 11" loading="lazy" data-index="10" width="640" height="480">
+              <img src="images/works/boat4-12-thumb.jpg" alt="Комплексный тюнинг катера, фото 12" loading="lazy" data-index="11" width="640" height="480">
             </div>
+            <button type="button" class="boat__nav boat__nav--prev" aria-label="Предыдущее фото">‹</button>
+            <button type="button" class="boat__nav boat__nav--next" aria-label="Следующее фото">›</button>
+            <span class="boat__count">1 / 12</span>
           </div>
-          <div class="project__info">
+          <div class="boat__info">
             <h3>Комплексный тюнинг катера</h3>
             <p>Отделка кокпита с&nbsp;оранжевыми вставками, новое покрытие палубы, подсветка, приборная панель с&nbsp;картплоттером и&nbsp;приборами, стеклоочистители, дистанционное управление мотором.</p>
-            <button type="button" class="btn btn--ghost" data-index="0">Смотреть все фото (12)</button>
           </div>
         </article>
       </div>
@@ -538,13 +580,24 @@ p, li, figcaption { text-wrap: pretty; }
     new Image().src = photos[(cur + 1) % photos.length];
   }
   function closeLb() { lb.classList.remove("is-open"); document.body.style.overflow = ""; }
-  document.querySelectorAll(".project").forEach(function (p) {
-    var list = p.getAttribute("data-photos").split(",");
-    p.addEventListener("click", function (e) {
-      var b = e.target.closest("[data-index]");
-      if (!b) return;
-      photos = list; show(+b.getAttribute("data-index"));
-      lb.classList.add("is-open"); document.body.style.overflow = "hidden";
+  function openLb(list, i) {
+    photos = list; show(i);
+    lb.classList.add("is-open"); document.body.style.overflow = "hidden";
+  }
+  document.querySelectorAll(".boat").forEach(function (card) {
+    var list = card.getAttribute("data-photos").split(",");
+    var track = card.querySelector(".boat__track");
+    var count = card.querySelector(".boat__count");
+    function idx() { return Math.round(track.scrollLeft / track.clientWidth); }
+    function go(i) {
+      i = (i + list.length) % list.length;
+      track.scrollTo({ left: i * track.clientWidth, behavior: "smooth" });
+    }
+    track.addEventListener("scroll", function () { count.textContent = (idx() + 1) + " / " + list.length; }, { passive: true });
+    card.querySelector(".boat__nav--prev").addEventListener("click", function () { go(idx() - 1); });
+    card.querySelector(".boat__nav--next").addEventListener("click", function () { go(idx() + 1); });
+    track.addEventListener("click", function (e) {
+      if (e.target.tagName === "IMG") openLb(list, +e.target.getAttribute("data-index"));
     });
   });
   lb.querySelector(".lightbox__close").addEventListener("click", closeLb);
