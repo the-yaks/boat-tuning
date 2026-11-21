@@ -15,6 +15,6 @@ window.SITE_CONFIG = {
   maxUrl: "https://max.ru/u/f9LHodD0cOI_EWlX5eczMRyrgtSB1MiPvnAlhKM8POfMxDiGiavjYpwFXmU",
   maxLabel: "Написать в MAX",
 
-  address: "г. Город, ул. Набережная, 1",
+  address: "г. Сургут",
   hours: "Ежедневно 9:00–20:00"
 };
