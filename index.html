@@ -203,24 +203,6 @@ p, li, figcaption { text-wrap: pretty; }
   .lightbox__prev, .lightbox__next { top: auto; bottom: 8px; transform: none; }
 }
 
-/* Steps */
-.steps { list-style: none; counter-reset: step; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
-.steps li {
-  counter-increment: step;
-  position: relative;
-  background: var(--bg-alt);
-  border-radius: var(--radius);
-  padding: 3.6rem 1.5rem 1.5rem;
-  box-shadow: 0 2px 10px rgba(7, 21, 34, .05);
-}
-.steps li::before {
-  content: "0" counter(step);
-  position: absolute; top: 1.2rem; left: 1.5rem;
-  font-weight: 800; font-size: 1.5rem; color: var(--aqua-dark);
-}
-.steps b { font-size: 1.1rem; }
-.steps p { margin: .4rem 0 0; color: var(--muted); font-size: .95rem; }
-
 /* Contacts */
 .contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 .contacts__list { list-style: none; padding: 0; margin: 1.5rem 0 0; }
@@ -255,7 +237,6 @@ p, li, figcaption { text-wrap: pretty; }
 
 /* Responsive */
 @media (max-width: 1080px) {
-  .steps { grid-template-columns: repeat(2, 1fr); }
   .header__phone { display: none; }
 }
 @media (max-width: 860px) {
@@ -275,7 +256,6 @@ p, li, figcaption { text-wrap: pretty; }
   .footer { padding-bottom: 5rem; }
 }
 @media (max-width: 560px) {
-  .steps { grid-template-columns: 1fr; }
   .contact-buttons--row { grid-template-columns: 1fr; }
   .contact-buttons--row .cbtn { justify-content: flex-start; }
   }
@@ -294,7 +274,6 @@ p, li, figcaption { text-wrap: pretty; }
     </a>
     <nav class="nav" id="nav">
       <a href="#works">Работы</a>
-      <a href="#process">Как&nbsp;работаем</a>
       <a href="#contacts">Контакты</a>
     </nav>
     <a class="header__phone" data-contact="phone" href="tel:+79822279192">+7&nbsp;(982)&nbsp;227-91-92</a>
@@ -447,22 +426,8 @@ p, li, figcaption { text-wrap: pretty; }
     </div>
   </section>
 
-  <!-- PROCESS -->
-  <section class="section" id="process">
-    <div class="container">
-      <p class="eyebrow">Просто и&nbsp;прозрачно</p>
-      <h2 class="section__title">Как&nbsp;мы&nbsp;работаем</h2>
-      <ol class="steps">
-        <li><b>Заявка</b><p>Звоните или&nbsp;пишите в&nbsp;MAX. Пришлите фото лодки&nbsp;— сразу сориентируем по&nbsp;цене.</p></li>
-        <li><b>Осмотр и&nbsp;смета</b><p>Осматриваем лодку, согласуем материалы, дизайн, сроки и&nbsp;фиксируем стоимость.</p></li>
-        <li><b>Работа</b><p>Выполняем тюнинг в&nbsp;тёплом боксе и&nbsp;присылаем фотоотчёты по&nbsp;ходу работ.</p></li>
-        <li><b>Сдача лодки</b><p>Принимаете готовую лодку и&nbsp;получаете рекомендации по&nbsp;уходу.</p></li>
-      </ol>
-    </div>
-  </section>
-
   <!-- CONTACTS -->
-  <section class="section section--dark" id="contacts">
+  <section class="section" id="contacts">
     <div class="container contacts">
       <div>
         <p class="eyebrow">Связаться с&nbsp;нами</p>
