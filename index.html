@@ -35,7 +35,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
   margin: 0;
   font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -162,6 +162,8 @@ p, li, figcaption { text-wrap: pretty; }
 .section--dark .section__lead { color: var(--muted); }
 
 /* Works */
+#works { padding: clamp(2rem, 4vw, 3rem) 0; }
+#works .section__lead { margin-bottom: 1.5rem; }
 .works { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 .boat { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
 .boat__slider { position: relative; aspect-ratio: 4 / 3; background: var(--bg-alt); overflow: hidden; }
