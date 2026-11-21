@@ -119,10 +119,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
 .hero h1 { font-size: clamp(2rem, 4.6vw, 3.5rem); font-weight: 800; letter-spacing: -.02em; }
 .hero .eyebrow { color: var(--aqua); }
 .lead { font-size: clamp(1.02rem, 1.6vw, 1.2rem); color: rgba(255, 255, 255, .8); max-width: 38rem; }
-.hero__cta { display: flex; flex-wrap: wrap; gap: .8rem; margin: 2rem 0 2.5rem; }
-.hero__stats { display: flex; flex-wrap: wrap; gap: 2.5rem; list-style: none; margin: 0; padding: 0; }
-.hero__stats b { display: block; font-size: 1.8rem; font-weight: 800; color: var(--sun); }
-.hero__stats span { font-size: .9rem; color: rgba(255, 255, 255, .7); }
+.hero__cta { display: flex; flex-wrap: wrap; gap: .8rem; margin: 2rem 0 0; }
 
 .hero__card {
   background: rgba(255, 255, 255, .06);
@@ -294,8 +291,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
   .services, .steps { grid-template-columns: 1fr; }
   .contact-buttons--row { grid-template-columns: 1fr; }
   .contact-buttons--row .cbtn { justify-content: flex-start; }
-  .hero__stats { gap: 1.5rem; }
-}
+  }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
@@ -337,11 +333,6 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
           <a href="#contacts" class="btn btn--primary">Записаться</a>
           <a href="#works" class="btn btn--ghost">Смотреть работы</a>
         </div>
-        <ul class="hero__stats">
-          <li><b>8+</b><span>лет опыта</span></li>
-          <li><b>500+</b><span>лодок и&nbsp;катеров</span></li>
-          <li><b>1&nbsp;год</b><span>гарантии на&nbsp;работы</span></li>
-        </ul>
       </div>
       <div class="hero__card" aria-label="Быстрая запись">
         <h2>Запишитесь удобным способом</h2>
