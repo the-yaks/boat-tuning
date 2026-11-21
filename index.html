@@ -9,7 +9,8 @@
   <meta property="og:description" content="Делаем лодку, которой хочется гордиться. Запись по телефону и в MAX.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#ffffff">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1d2e'/%3E%3Cpath d='M10 38h44l-7 10H17z' fill='%2300c2d1'/%3E%3Cpath d='M30 12v24H16z' fill='%23ffb547'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="apple-touch-icon" href="images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -34,7 +35,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body {
   margin: 0;
   font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -90,7 +91,8 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
   transition: box-shadow .2s;
 }
 .header.is-scrolled { box-shadow: 0 6px 24px rgba(7, 21, 34, .08); }
-.header__inner { display: flex; align-items: center; gap: 2rem; height: 68px; }
+.header__inner { display: flex; align-items: center; gap: 2rem; height: 80px; }
+.logo img { height: 64px; width: auto; }
 .logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; font-size: 1.2rem; font-weight: 600; white-space: nowrap; }
 .logo b { color: var(--aqua-dark); font-weight: 800; }
 .nav { display: flex; gap: 1.5rem; margin-left: auto; }
@@ -118,6 +120,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
 .hero__waves svg { width: 100%; height: 100%; }
 .hero__inner { position: relative; display: grid; grid-template-columns: 1.25fr 1fr; gap: 3rem; align-items: center; }
 .hero h1 { font-size: clamp(2rem, 4.6vw, 3.5rem); font-weight: 800; letter-spacing: -.02em; }
+.hero__logo { width: clamp(220px, 28vw, 340px); height: auto; margin: 0 0 1.2rem -6px; }
 .hero .eyebrow { color: var(--aqua-dark); }
 .lead { font-size: clamp(1.02rem, 1.6vw, 1.2rem); color: var(--muted); max-width: 38rem; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: .8rem; margin: 2rem 0 0; }
@@ -262,7 +265,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
 @media (max-width: 860px) {
   .burger { display: block; }
   .nav {
-    position: absolute; top: 68px; left: 0; right: 0;
+    position: absolute; top: 80px; left: 0; right: 0;
     flex-direction: column; gap: 0;
     background: #fff;
     padding: .5rem 16px 1rem;
@@ -292,8 +295,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
 <header class="header" id="top">
   <div class="container header__inner">
     <a href="#top" class="logo" aria-label="Boats Service Surgut — на главную">
-      <svg viewBox="0 0 64 64" width="36" height="36" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#12314d"/><path d="M10 38h44l-7 10H17z" fill="#00c2d1"/><path d="M30 12v24H16z" fill="#ffb547"/></svg>
-      <span>Boats Service <b>Surgut</b></span>
+      <img src="images/logo.png" alt="Tuning Boat Service Surgut" width="416" height="200">
     </a>
     <nav class="nav" id="nav">
       <a href="#services">Услуги</a>
@@ -314,6 +316,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
     </div>
     <div class="container hero__inner">
       <div class="hero__text">
+        <img class="hero__logo" src="images/logo.png" alt="" width="416" height="200">
         <p class="eyebrow">Тюнинг-центр для&nbsp;маломерных судов</p>
         <h1>Тюнинг лодок и&nbsp;катеров, <span class="accent">которыми хочется гордиться</span></h1>
         <p class="lead">Оклейка и&nbsp;покраска корпуса, свет и&nbsp;электроника, перетяжка салона, тенты, обслуживание моторов. Делаем аккуратно и&nbsp;в&nbsp;срок.</p>
