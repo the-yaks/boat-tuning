@@ -636,6 +636,24 @@ p, li, figcaption { text-wrap: pretty; }
     if (texts[key]) el.textContent = texts[key];
   });
 
+  // При обновлении страницы всегда начинаем сверху
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  window.addEventListener("pageshow", function (e) { if (e.persisted) window.scrollTo({ top: 0, behavior: "instant" }); });
+
+  // Ссылки меню прокручивают к разделу, не добавляя #раздел в адрес
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute("href").slice(1);
+    var target = id === "top" ? null : document.getElementById(id);
+    if (id !== "top" && !target) return;
+    e.preventDefault();
+    if (target) target.scrollIntoView({ behavior: "smooth" });
+    else window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
   // Год в футере
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
