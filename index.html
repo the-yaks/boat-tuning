@@ -47,7 +47,7 @@ body {
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; }
 h1, h2, h3 { line-height: 1.15; margin: 0 0 .5em; text-wrap: balance; }
-p, li, figcaption, summary, .service p { text-wrap: pretty; }
+p, li, figcaption { text-wrap: pretty; }
 
 .container { width: min(1180px, 100% - 32px); margin-inline: auto; }
 .narrow { width: min(820px, 100% - 32px); }
@@ -161,28 +161,6 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
 .section__lead { color: var(--muted); max-width: 44rem; margin: 0 0 2.5rem; }
 .section--dark .section__lead { color: var(--muted); }
 
-/* Services */
-.grid { display: grid; gap: 1.25rem; }
-.services { grid-template-columns: repeat(4, 1fr); margin-top: 2rem; }
-.service {
-  padding: 1.6rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: #fff;
-  transition: transform .2s, box-shadow .2s, border-color .2s;
-}
-.service:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: transparent; }
-.service__icon {
-  width: 52px; height: 52px;
-  display: grid; place-items: center;
-  border-radius: 14px;
-  background: linear-gradient(135deg, rgba(0, 194, 209, .16), rgba(0, 194, 209, .05));
-  margin-bottom: 1.1rem;
-}
-.service__icon svg { width: 26px; height: 26px; fill: none; stroke: var(--aqua-dark); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.service h3 { font-size: 1.12rem; }
-.service p { margin: 0; color: var(--muted); font-size: .95rem; }
-
 /* Works */
 .works { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 .work { margin: 0; border-radius: var(--radius); overflow: hidden; background: #fff; border: 1px solid var(--line); }
@@ -257,7 +235,6 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
 
 /* Responsive */
 @media (max-width: 1080px) {
-  .services { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
   .header__phone { display: none; }
 }
@@ -279,7 +256,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
   .footer { padding-bottom: 5rem; }
 }
 @media (max-width: 560px) {
-  .services, .steps { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
   .contact-buttons--row { grid-template-columns: 1fr; }
   .contact-buttons--row .cbtn { justify-content: flex-start; }
   }
@@ -297,7 +274,6 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
       <img src="images/logo.png" alt="Tuning Boat Service Surgut" width="416" height="200">
     </a>
     <nav class="nav" id="nav">
-      <a href="#services">Услуги</a>
       <a href="#works">Работы</a>
       <a href="#process">Как&nbsp;работаем</a>
       <a href="#contacts">Контакты</a>
@@ -311,7 +287,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
   <!-- HERO -->
   <section class="hero">
     <div class="hero__waves" aria-hidden="true">
-      <svg viewBox="0 0 1440 320" preserveAspectRatio="none"><path fill="rgba(0,194,209,.10)" d="M0,192L60,186.7C120,181,240,171,360,181.3C480,192,600,224,720,218.7C840,213,960,171,1080,154.7C1200,139,1320,149,1380,154.7L1440,160L1440,320L0,320Z"/><path fill="#ffffff" d="M0,256L80,245.3C160,235,320,213,480,218.7C640,224,800,256,960,261.3C1120,267,1280,245,1360,234.7L1440,224L1440,320L0,320Z"/></svg>
+      <svg viewBox="0 0 1440 320" preserveAspectRatio="none"><path fill="rgba(0,194,209,.10)" d="M0,192L60,186.7C120,181,240,171,360,181.3C480,192,600,224,720,218.7C840,213,960,171,1080,154.7C1200,139,1320,149,1380,154.7L1440,160L1440,320L0,320Z"/><path fill="#f1f6fa" d="M0,256L80,245.3C160,235,320,213,480,218.7C640,224,800,256,960,261.3C1120,267,1280,245,1360,234.7L1440,224L1440,320L0,320Z"/></svg>
     </div>
     <div class="container hero__inner">
       <div class="hero__text">
@@ -336,56 +312,6 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
             <span><b>MAX</b><small data-contact-text="max">Написать в&nbsp;MAX</small></span>
           </a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="section" id="services">
-    <div class="container">
-      <p class="eyebrow">Что&nbsp;мы&nbsp;делаем</p>
-      <h2 class="section__title">Услуги</h2>
-      <div class="grid services">
-        <article class="service">
-          <div class="service__icon"><svg viewBox="0 0 24 24"><path d="M3 15h18l-3 5H6zM12 3v10M12 3l6 8h-6"/></svg></div>
-          <h3>Оклейка корпуса</h3>
-          <p>Виниловые и&nbsp;полиуретановые плёнки, винил-раппинг, защитная плёнка от&nbsp;царапин, индивидуальный дизайн и&nbsp;бортовые номера.</p>
-        </article>
-        <article class="service">
-          <div class="service__icon"><svg viewBox="0 0 24 24"><path d="M4 20l4-1L19 8l-3-3L5 16zM14 7l3 3M18 2l4 4"/></svg></div>
-          <h3>Покраска и&nbsp;полировка</h3>
-          <p>Покраска алюминиевых и&nbsp;пластиковых корпусов, ремонт гелькоута, восстановительная полировка, необрастающие покрытия.</p>
-        </article>
-        <article class="service">
-          <div class="service__icon"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6V16h5.4v-.5c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3z"/></svg></div>
-          <h3>Свет и&nbsp;подсветка</h3>
-          <p>LED-подсветка корпуса и&nbsp;днища, ходовые огни, прожекторы, светодиодные балки, подсветка кокпита и&nbsp;рундуков.</p>
-        </article>
-        <article class="service">
-          <div class="service__icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 12l3-3 2 2 4-4"/></svg></div>
-          <h3>Электроника</h3>
-          <p>Установка эхолотов и&nbsp;картплоттеров, акустики, USB и&nbsp;12V, переключателей, второго аккумулятора, разводка проводки.</p>
-        </article>
-        <article class="service">
-          <div class="service__icon"><svg viewBox="0 0 24 24"><path d="M5 11V7a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v4M3 11h18v5H3zM5 16v4M19 16v4"/></svg></div>
-          <h3>Интерьер и&nbsp;перетяжка</h3>
-          <p>Перетяжка сидений морским винилом, мягкие спинки, настил EVA-«тик», ковролин, коврики, рундуки и&nbsp;столики.</p>
-        </article>
-        <article class="service">
-          <div class="service__icon"><svg viewBox="0 0 24 24"><path d="M2 18h20M4 18c0-6 4-10 8-10s8 4 8 10M12 8V4"/></svg></div>
-          <h3>Тенты и&nbsp;чехлы</h3>
-          <p>Ходовые и&nbsp;транспортировочные тенты, бимини, стояночные чехлы, ветровые стёкла и&nbsp;рамы&nbsp;— по&nbsp;меркам вашей лодки.</p>
-        </article>
-        <article class="service">
-          <div class="service__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></div>
-          <h3>Моторы и&nbsp;ходовая</h3>
-          <p>Установка и&nbsp;обслуживание ПЛМ, подбор винтов, дистанционное управление, гидрокрылья, транцевые плиты и&nbsp;подъёмники.</p>
-        </article>
-        <article class="service">
-          <div class="service__icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div>
-          <h3>Доработка корпуса</h3>
-          <p>Булевые обводы, редан, аквастопы, рейлинги и&nbsp;леерные ограждения, рыболовные держатели, площадки для&nbsp;купания.</p>
-        </article>
       </div>
     </div>
   </section>
