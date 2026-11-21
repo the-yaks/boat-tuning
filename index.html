@@ -218,22 +218,6 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
 .steps b { font-size: 1.1rem; }
 .steps p { margin: .4rem 0 0; color: var(--muted); font-size: .95rem; }
 
-/* FAQ */
-.faq { border-bottom: 1px solid var(--line); }
-.faq summary {
-  list-style: none; cursor: pointer;
-  padding: 1.2rem 2.5rem 1.2rem 0;
-  font-weight: 700; font-size: 1.05rem;
-  position: relative;
-}
-.faq summary::-webkit-details-marker { display: none; }
-.faq summary::after {
-  content: "+"; position: absolute; right: .3rem; top: 50%; transform: translateY(-50%);
-  font-size: 1.6rem; font-weight: 400; color: var(--aqua-dark); transition: transform .2s;
-}
-.faq[open] summary::after { transform: translateY(-50%) rotate(45deg); }
-.faq p { margin: 0 0 1.2rem; color: var(--muted); }
-
 /* Contacts */
 .contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 .contacts__list { list-style: none; padding: 0; margin: 1.5rem 0 0; }
@@ -310,7 +294,6 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
       <a href="#services">Услуги</a>
       <a href="#works">Работы</a>
       <a href="#process">Как&nbsp;работаем</a>
-      <a href="#faq">Вопросы</a>
       <a href="#contacts">Контакты</a>
     </nav>
     <a class="header__phone" data-contact="phone" href="tel:+79822279192">+7&nbsp;(982)&nbsp;227-91-92</a>
@@ -439,18 +422,6 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
         <li><b>Работа</b><p>Выполняем тюнинг в&nbsp;тёплом боксе и&nbsp;присылаем фотоотчёты по&nbsp;ходу работ.</p></li>
         <li><b>Сдача лодки</b><p>Принимаете готовую лодку и&nbsp;получаете рекомендации по&nbsp;уходу.</p></li>
       </ol>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section" id="faq">
-    <div class="container narrow">
-      <p class="eyebrow">Частые вопросы</p>
-      <h2 class="section__title">Вопросы и&nbsp;ответы</h2>
-      <details class="faq"><summary>Сколько времени занимает тюнинг?</summary><p>Установка электроники или&nbsp;света&nbsp;— 1–2&nbsp;дня. Оклейка&nbsp;— 3–5&nbsp;дней. Покраска и&nbsp;комплексный тюнинг&nbsp;— от&nbsp;1&nbsp;до&nbsp;3&nbsp;недель. Точный срок фиксируем в&nbsp;смете.</p></details>
-      <details class="faq"><summary>Можно ли&nbsp;узнать стоимость заранее?</summary><p>Да. Пришлите в&nbsp;MAX несколько фото лодки и&nbsp;опишите, что&nbsp;хотите сделать&nbsp;— назовём ориентировочную цену. Окончательная стоимость фиксируется после осмотра.</p></details>
-      <details class="faq"><summary>Вы&nbsp;забираете лодку?</summary><p>Можем организовать транспортировку лодки на&nbsp;прицепе до&nbsp;мастерской и&nbsp;обратно&nbsp;— стоимость зависит от&nbsp;расстояния.</p></details>
-      <details class="faq"><summary>Когда лучше записываться?</summary><p>Межсезонье (осень–весна)&nbsp;— лучшее время: нет очереди, и&nbsp;к&nbsp;открытию навигации лодка будет готова. В&nbsp;сезон рекомендуем записываться за&nbsp;2–3&nbsp;недели.</p></details>
     </div>
   </section>
 
