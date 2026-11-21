@@ -22,6 +22,17 @@
       el.textContent = texts.phone;
     }
   });
+  // Неразрывные пробелы: короткие слова и числа не остаются в конце строки
+  function typo(t) {
+    if (!t) return t;
+    t = t.replace(/(^|[\s(«])([А-Яа-яЁёA-Za-z]{1,2}|для|без|под|над|при|про)\s+/g, "$1$2\u00a0");
+    t = t.replace(/(^|[\s(«])([А-Яа-яЁёA-Za-z]{1,2}|для|без|под|над|при|про)\s+/g, "$1$2\u00a0");
+    t = t.replace(/\s+([—–])/g, "\u00a0$1").replace(/(\d)\s+/g, "$1\u00a0").replace(/(г|ул|д)\.\s+/g, "$1.\u00a0");
+    return t;
+  }
+  if (texts.phone) texts.phone = texts.phone.replace(/\s+/g, "\u00a0");
+  ["telegram", "max", "address", "hours"].forEach(function (k) { texts[k] = typo(texts[k]); });
+
   document.querySelectorAll("[data-contact-text]").forEach(function (el) {
     var key = el.getAttribute("data-contact-text");
     if (texts[key]) el.textContent = texts[key];
@@ -52,63 +63,4 @@
   window.addEventListener("scroll", function () {
     header.classList.toggle("is-scrolled", window.scrollY > 10);
   }, { passive: true });
-
-  // Форма заявки → готовое сообщение в мессенджер
-  var form = document.getElementById("bookingForm");
-  var errorEl = document.getElementById("formError");
-  var hintEl = document.getElementById("formHint");
-  var target = "telegram";
-
-  form.querySelectorAll("[data-send]").forEach(function (btn) {
-    btn.addEventListener("click", function () { target = btn.getAttribute("data-send"); });
-  });
-
-  function copy(text) {
-    if (navigator.clipboard && window.isSecureContext) {
-      return navigator.clipboard.writeText(text).catch(function () {});
-    }
-    var ta = document.createElement("textarea");
-    ta.value = text;
-    ta.style.position = "fixed";
-    ta.style.opacity = "0";
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand("copy"); } catch (e) {}
-    document.body.removeChild(ta);
-    return Promise.resolve();
-  }
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var d = new FormData(form);
-    var name = (d.get("name") || "").trim();
-    var phone = (d.get("phone") || "").trim();
-    if (!name || !phone) {
-      errorEl.hidden = false;
-      (name ? form.phone : form.name).focus();
-      return;
-    }
-    errorEl.hidden = true;
-
-    var lines = [
-      "Здравствуйте! Хочу записаться на тюнинг.",
-      "Имя: " + name,
-      "Телефон: " + phone
-    ];
-    var boat = (d.get("boat") || "").trim();
-    var comment = (d.get("comment") || "").trim();
-    if (boat) lines.push("Лодка: " + boat);
-    lines.push("Услуга: " + d.get("service"));
-    if (comment) lines.push("Комментарий: " + comment);
-    var message = lines.join("\n");
-
-    // Открываем окно синхронно, чтобы браузер не заблокировал всплывающее окно
-    var url = target === "max" ? links.max : links.telegram;
-    var win = url ? window.open(url, "_blank") : null;
-    if (win) { try { win.opener = null; } catch (err) {} }
-    copy(message).then(function () {
-      hintEl.hidden = false;
-      if (!win && url) window.location.href = url;
-    });
-  });
 })();
