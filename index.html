@@ -162,26 +162,39 @@ p, li, figcaption { text-wrap: pretty; }
 .section--dark .section__lead { color: var(--muted); }
 
 /* Works */
-.works { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-.work { margin: 0; border-radius: var(--radius); overflow: hidden; background: #fff; border: 1px solid var(--line); }
-.work__img {
-  aspect-ratio: 16 / 10;
-  display: grid; place-items: end start;
-  padding: 1rem;
-  background-size: cover; background-position: center;
+.works { display: grid; gap: 1.5rem; }
+.project { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.project button { font: inherit; cursor: pointer; }
+.project__gallery { display: grid; grid-template-columns: 2fr 1fr; gap: 6px; padding: 6px; }
+.project__main, .project__thumb { position: relative; display: block; padding: 0; border: 0; border-radius: 12px; overflow: hidden; background: var(--bg-alt); }
+.project__main img, .project__thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.project__main:hover img, .project__thumb:hover img { transform: scale(1.04); }
+.project__main { aspect-ratio: 16 / 10; }
+.project__thumbs { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; }
+.project__thumb { min-height: 0; }
+.project__thumb img { position: absolute; inset: 0; }
+.project__more { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(7, 21, 34, .55); color: #fff; font-weight: 800; font-size: 1.3rem; }
+.project__info { padding: 1.2rem 1.5rem 1.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 2rem; }
+.project__info h3 { font-size: 1.25rem; margin: 0; flex-basis: 100%; }
+.project__info p { margin: 0; color: var(--muted); flex: 1 1 380px; }
+
+/* Lightbox */
+.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(7, 21, 34, .94); display: none; align-items: center; justify-content: center; }
+.lightbox.is-open { display: flex; }
+.lightbox img { max-width: 92vw; max-height: 84vh; border-radius: 8px; box-shadow: 0 20px 60px rgba(0, 0, 0, .5); }
+.lightbox button { position: absolute; border: 0; background: rgba(255, 255, 255, .12); color: #fff; width: 52px; height: 52px; border-radius: 50%; font-size: 1.6rem; cursor: pointer; display: grid; place-items: center; }
+.lightbox button:hover { background: rgba(255, 255, 255, .25); }
+.lightbox__close { top: 16px; right: 16px; }
+.lightbox__prev { left: 16px; top: 50%; transform: translateY(-50%); }
+.lightbox__next { right: 16px; top: 50%; transform: translateY(-50%); }
+.lightbox__count { pointer-events: none; position: absolute; bottom: 22px; left: 0; right: 0; text-align: center; color: rgba(255, 255, 255, .75); font-weight: 600; }
+@media (max-width: 860px) {
+  .project__gallery { grid-template-columns: 1fr; }
+  .project__thumbs { grid-template-columns: repeat(4, 1fr); grid-template-rows: auto; }
+  .project__thumb { aspect-ratio: 1; }
+  .project__more { font-size: .95rem; }
+  .lightbox__prev, .lightbox__next { top: auto; bottom: 8px; transform: none; }
 }
-.work__img span {
-  color: #fff;
-  font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-  background: rgba(0, 0, 0, .35); padding: .3rem .6rem; border-radius: 6px;
-}
-/* Замените градиенты на фото: background-image: url("images/work1.jpg"); */
-.work--1 .work__img { background-image: linear-gradient(135deg, #0f4c75, #00c2d1); }
-.work--2 .work__img { background-image: linear-gradient(135deg, #1b262c, #3282b8); }
-.work--3 .work__img { background-image: linear-gradient(135deg, #3a2e5d, #6b4dff); }
-.work--4 .work__img { background-image: linear-gradient(135deg, #5c3d1e, #ffb547); }
-.work figcaption { padding: 1.1rem 1.3rem 1.3rem; display: flex; flex-direction: column; }
-.work figcaption span { color: var(--muted); font-size: .93rem; }
 
 /* Steps */
 .steps { list-style: none; counter-reset: step; padding: 0; margin: 2rem 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
@@ -251,7 +264,6 @@ p, li, figcaption { text-wrap: pretty; }
   .nav.is-open { display: flex; }
   .nav a { padding: .8rem 0; border-bottom: 1px solid var(--line); }
   .hero__inner, .contacts { grid-template-columns: 1fr; gap: 2rem; }
-  .works { grid-template-columns: 1fr; }
   .floating { display: flex; flex-direction: column; gap: .6rem; position: fixed; right: 16px; bottom: 16px; z-index: 40; }
   .footer { padding-bottom: 5rem; }
 }
@@ -321,24 +333,24 @@ p, li, figcaption { text-wrap: pretty; }
     <div class="container">
       <p class="eyebrow">Портфолио</p>
       <h2 class="section__title">Наши работы</h2>
-      <p class="section__lead">Несколько проектов последнего сезона. Больше фото и&nbsp;видео пришлём в&nbsp;MAX&nbsp;— просто напишите нам.</p>
+      <p class="section__lead">Больше фото и&nbsp;видео пришлём в&nbsp;MAX&nbsp;— просто напишите нам.</p>
       <div class="works">
-        <figure class="work work--1">
-          <div class="work__img" role="img" aria-label="Катер в синей оклейке"><span>Фото проекта</span></div>
-          <figcaption><b>Алюминиевый катер 5,2&nbsp;м</b><span>Оклейка, LED-подсветка, настил EVA</span></figcaption>
-        </figure>
-        <figure class="work work--2">
-          <div class="work__img" role="img" aria-label="Рыболовная лодка с электроникой"><span>Фото проекта</span></div>
-          <figcaption><b>Рыболовная лодка 4,6&nbsp;м</b><span>Эхолот, картплоттер, второй АКБ, держатели</span></figcaption>
-        </figure>
-        <figure class="work work--3">
-          <div class="work__img" role="img" aria-label="Салон катера после перетяжки"><span>Фото проекта</span></div>
-          <figcaption><b>Пластиковый катер 6,0&nbsp;м</b><span>Перетяжка салона, бимини-тент, акустика</span></figcaption>
-        </figure>
-        <figure class="work work--4">
-          <div class="work__img" role="img" aria-label="Восстановленный корпус лодки"><span>Фото проекта</span></div>
-          <figcaption><b>Лодка 4,3&nbsp;м&nbsp;после зимовки</b><span>Ремонт гелькоута, покраска, полировка</span></figcaption>
-        </figure>
+        <article class="project" data-photos="images/works/boat1-main.jpg,images/works/boat1-15.jpg,images/works/boat1-4.jpg,images/works/boat1-12.jpg,images/works/boat1-14.jpg,images/works/boat1-10.jpg,images/works/boat1-1.jpg,images/works/boat1-2.jpg,images/works/boat1-3.jpg,images/works/boat1-5.jpg,images/works/boat1-6.jpg,images/works/boat1-7.jpg,images/works/boat1-8.jpg,images/works/boat1-9.jpg,images/works/boat1-11.jpg,images/works/boat1-13.jpg">
+          <div class="project__gallery">
+            <button type="button" class="project__main" data-index="0"><img src="images/works/boat1-main.jpg" alt="Кокпит лодки после доработки" loading="lazy" width="1600" height="969"></button>
+            <div class="project__thumbs">
+            <button type="button" class="project__thumb" data-index="1"><img src="images/works/boat1-15-thumb.jpg" alt="Борт: свет и проходные элементы" loading="lazy" width="640" height="480"></button>
+            <button type="button" class="project__thumb" data-index="2"><img src="images/works/boat1-4-thumb.jpg" alt="Держатели удилищ" loading="lazy" width="640" height="480"></button>
+            <button type="button" class="project__thumb" data-index="3"><img src="images/works/boat1-12-thumb.jpg" alt="Панель переключателей" loading="lazy" width="640" height="480"></button>
+            <button type="button" class="project__thumb" data-index="4"><img src="images/works/boat1-14-thumb.jpg" alt="Аккумуляторный отсек" loading="lazy" width="640" height="480"><span class="project__more">+11&nbsp;фото</span></button>
+            </div>
+          </div>
+          <div class="project__info">
+            <h3>Комплексная доработка лодки</h3>
+            <p>Новая проводка и&nbsp;панели переключателей, установка приборов и&nbsp;картплоттера, аккумуляторный отсек, держатели удилищ, освещение.</p>
+            <button type="button" class="btn btn--ghost" data-index="0">Смотреть все фото (16)</button>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -388,6 +400,14 @@ p, li, figcaption { text-wrap: pretty; }
     <a href="#top">Наверх ↑</a>
   </div>
 </footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото">
+  <img alt="">
+  <button type="button" class="lightbox__close" aria-label="Закрыть">✕</button>
+  <button type="button" class="lightbox__prev" aria-label="Предыдущее фото">‹</button>
+  <button type="button" class="lightbox__next" aria-label="Следующее фото">›</button>
+  <div class="lightbox__count"></div>
+</div>
 
 <!-- Плавающие кнопки для мобильных -->
 <div class="floating" aria-label="Быстрая связь">
@@ -459,6 +479,42 @@ p, li, figcaption { text-wrap: pretty; }
   window.addEventListener("scroll", function () {
     header.classList.toggle("is-scrolled", window.scrollY > 10);
   }, { passive: true });
+  // Галерея работ
+  var lb = document.getElementById("lightbox");
+  var lbImg = lb.querySelector("img"), lbCount = lb.querySelector(".lightbox__count");
+  var photos = [], cur = 0, touchX = null;
+  function show(i) {
+    cur = (i + photos.length) % photos.length;
+    lbImg.src = photos[cur];
+    lbCount.textContent = (cur + 1) + " / " + photos.length;
+    new Image().src = photos[(cur + 1) % photos.length];
+  }
+  function closeLb() { lb.classList.remove("is-open"); document.body.style.overflow = ""; }
+  document.querySelectorAll(".project").forEach(function (p) {
+    var list = p.getAttribute("data-photos").split(",");
+    p.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-index]");
+      if (!b) return;
+      photos = list; show(+b.getAttribute("data-index"));
+      lb.classList.add("is-open"); document.body.style.overflow = "hidden";
+    });
+  });
+  lb.querySelector(".lightbox__close").addEventListener("click", closeLb);
+  lb.querySelector(".lightbox__prev").addEventListener("click", function () { show(cur - 1); });
+  lb.querySelector(".lightbox__next").addEventListener("click", function () { show(cur + 1); });
+  lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
+  document.addEventListener("keydown", function (e) {
+    if (!lb.classList.contains("is-open")) return;
+    if (e.key === "Escape") closeLb();
+    if (e.key === "ArrowLeft") show(cur - 1);
+    if (e.key === "ArrowRight") show(cur + 1);
+  });
+  lb.addEventListener("touchstart", function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchend", function (e) {
+    if (touchX === null) return;
+    var dx = e.changedTouches[0].clientX - touchX; touchX = null;
+    if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+  });
 })();
 </script>
 </body>
