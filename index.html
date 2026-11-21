@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>АкваТюнинг — тюнинг лодок и катеров</title>
-  <meta name="description" content="Тюнинг лодок и катеров: оклейка, покраска, электроника, свет, интерьер, тенты, моторы. Запись по телефону, в Telegram и MAX.">
+  <meta name="description" content="Тюнинг лодок и катеров: оклейка, покраска, электроника, свет, интерьер, тенты, моторы. Запись по телефону и в MAX.">
   <meta property="og:title" content="АкваТюнинг — тюнинг лодок и катеров">
-  <meta property="og:description" content="Делаем лодку, которой хочется гордиться. Запись по телефону, в Telegram и MAX.">
+  <meta property="og:description" content="Делаем лодку, которой хочется гордиться. Запись по телефону и в MAX.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#0b1d2e">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1d2e'/%3E%3Cpath d='M10 38h44l-7 10H17z' fill='%2300c2d1'/%3E%3Cpath d='M30 12v24H16z' fill='%23ffb547'/%3E%3C/svg%3E">
@@ -27,7 +27,6 @@
   --bg: #ffffff;
   --bg-alt: #f1f6fa;
   --line: #dde6ee;
-  --tg: #229ed9;
   --max: #6b4dff;
   --phone: #1fb35a;
   --radius: 18px;
@@ -79,7 +78,6 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
 .btn--primary { background: var(--sun); color: var(--navy-900); box-shadow: 0 8px 24px rgba(255, 181, 71, .35); }
 .btn--ghost { border-color: rgba(255, 255, 255, .35); color: #fff; }
 .btn--ghost:hover { border-color: #fff; }
-.btn--tg { background: var(--tg); color: #fff; }
 .btn--max { background: var(--max); color: #fff; }
 
 /* Header */
@@ -137,7 +135,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
 .hero__card p { color: rgba(255, 255, 255, .7); margin: 0 0 1.4rem; }
 
 .contact-buttons { display: grid; gap: .75rem; }
-.contact-buttons--row { grid-template-columns: repeat(3, 1fr); }
+.contact-buttons--row { grid-template-columns: repeat(2, 1fr); }
 .cbtn {
   display: flex; align-items: center; gap: .9rem;
   padding: .9rem 1.1rem;
@@ -150,7 +148,6 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
 .cbtn span { display: flex; flex-direction: column; line-height: 1.25; }
 .cbtn small { opacity: .85; font-size: .85rem; }
 .cbtn--phone { background: var(--phone); }
-.cbtn--tg { background: var(--tg); }
 .cbtn--max { background: var(--max); }
 .contact-buttons--row .cbtn { justify-content: center; }
 
@@ -354,11 +351,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
             <span><b>Позвонить</b><small data-contact-text="phone">+7&nbsp;(982)&nbsp;227-91-92</small></span>
           </a>
-          <a class="cbtn cbtn--tg" data-contact="telegram" href="https://t.me/username" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg>
-            <span><b>Telegram</b><small data-contact-text="telegram">@username</small></span>
-          </a>
-          <a class="cbtn cbtn--max" data-contact="max" href="https://max.ru/" target="_blank" rel="noopener">
+          <a class="cbtn cbtn--max" data-contact="max" href="https://max.ru/u/f9LHodD0cOI_EWlX5eczMRyrgtSB1MiPvnAlhKM8POfMxDiGiavjYpwFXmU" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15l-1.2 4.3c-.1.4.3.8.7.7l4.4-1.2A10 10 0 1 0 12 2zm4.6 13.8h-1.9v-4.6l-2 3h-1.3l-2-3v4.6H7.4V8.2h1.7l2.9 4.3 2.9-4.3h1.7z"/></svg>
             <span><b>MAX</b><small data-contact-text="max">Написать в&nbsp;MAX</small></span>
           </a>
@@ -422,7 +415,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
     <div class="container">
       <p class="eyebrow">Портфолио</p>
       <h2 class="section__title">Наши работы</h2>
-      <p class="section__lead">Несколько проектов последнего сезона. Больше фото и&nbsp;видео&nbsp;— в&nbsp;нашем Telegram-канале.</p>
+      <p class="section__lead">Несколько проектов последнего сезона. Больше фото и&nbsp;видео пришлём в&nbsp;MAX&nbsp;— просто напишите нам.</p>
       <div class="works">
         <figure class="work work--1">
           <div class="work__img" role="img" aria-label="Катер в синей оклейке"><span>Фото проекта</span></div>
@@ -450,7 +443,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
       <p class="eyebrow">Просто и&nbsp;прозрачно</p>
       <h2 class="section__title">Как&nbsp;мы&nbsp;работаем</h2>
       <ol class="steps">
-        <li><b>Заявка</b><p>Звоните или&nbsp;пишите в&nbsp;Telegram / MAX. Пришлите фото лодки&nbsp;— сразу сориентируем по&nbsp;цене.</p></li>
+        <li><b>Заявка</b><p>Звоните или&nbsp;пишите в&nbsp;MAX. Пришлите фото лодки&nbsp;— сразу сориентируем по&nbsp;цене.</p></li>
         <li><b>Осмотр и&nbsp;смета</b><p>Осматриваем лодку, согласуем материалы, дизайн, сроки и&nbsp;фиксируем стоимость.</p></li>
         <li><b>Работа</b><p>Выполняем тюнинг в&nbsp;тёплом боксе и&nbsp;присылаем фотоотчёты по&nbsp;ходу работ.</p></li>
         <li><b>Сдача и&nbsp;гарантия</b><p>Принимаете готовую лодку, получаете гарантию до&nbsp;1&nbsp;года и&nbsp;рекомендации по&nbsp;уходу.</p></li>
@@ -464,7 +457,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
       <p class="eyebrow">Частые вопросы</p>
       <h2 class="section__title">Вопросы и&nbsp;ответы</h2>
       <details class="faq"><summary>Сколько времени занимает тюнинг?</summary><p>Установка электроники или&nbsp;света&nbsp;— 1–2&nbsp;дня. Оклейка&nbsp;— 3–5&nbsp;дней. Покраска и&nbsp;комплексный тюнинг&nbsp;— от&nbsp;1&nbsp;до&nbsp;3&nbsp;недель. Точный срок фиксируем в&nbsp;смете.</p></details>
-      <details class="faq"><summary>Можно ли&nbsp;узнать стоимость заранее?</summary><p>Да. Пришлите в&nbsp;Telegram или&nbsp;MAX несколько фото лодки и&nbsp;опишите, что&nbsp;хотите сделать&nbsp;— назовём ориентировочную цену. Окончательная стоимость фиксируется после осмотра.</p></details>
+      <details class="faq"><summary>Можно ли&nbsp;узнать стоимость заранее?</summary><p>Да. Пришлите в&nbsp;MAX несколько фото лодки и&nbsp;опишите, что&nbsp;хотите сделать&nbsp;— назовём ориентировочную цену. Окончательная стоимость фиксируется после осмотра.</p></details>
       <details class="faq"><summary>Вы&nbsp;забираете лодку?</summary><p>Можем организовать транспортировку лодки на&nbsp;прицепе до&nbsp;мастерской и&nbsp;обратно&nbsp;— стоимость зависит от&nbsp;расстояния.</p></details>
       <details class="faq"><summary>Какая гарантия?</summary><p>На&nbsp;работы&nbsp;— до&nbsp;1&nbsp;года, на&nbsp;материалы и&nbsp;оборудование&nbsp;— гарантия производителя. Все&nbsp;условия прописываем в&nbsp;договоре.</p></details>
       <details class="faq"><summary>Когда лучше записываться?</summary><p>Межсезонье (осень–весна)&nbsp;— лучшее время: нет очереди, и&nbsp;к&nbsp;открытию навигации лодка будет готова. В&nbsp;сезон рекомендуем записываться за&nbsp;2–3&nbsp;недели.</p></details>
@@ -479,8 +472,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
         <h2 class="section__title">Контакты</h2>
         <ul class="contacts__list">
           <li><span>Телефон</span><a data-contact="phone" href="tel:+79822279192"><span data-contact-text="phone">+7&nbsp;(982)&nbsp;227-91-92</span></a></li>
-          <li><span>Telegram</span><a data-contact="telegram" href="https://t.me/username" target="_blank" rel="noopener"><span data-contact-text="telegram">@username</span></a></li>
-          <li><span>MAX</span><a data-contact="max" href="https://max.ru/" target="_blank" rel="noopener"><span data-contact-text="max">Написать в&nbsp;MAX</span></a></li>
+          <li><span>MAX</span><a data-contact="max" href="https://max.ru/u/f9LHodD0cOI_EWlX5eczMRyrgtSB1MiPvnAlhKM8POfMxDiGiavjYpwFXmU" target="_blank" rel="noopener"><span data-contact-text="max">Написать в&nbsp;MAX</span></a></li>
           <li><span>Адрес</span><b data-contact-text="address">г.&nbsp;Город, ул.&nbsp;Набережная, 1</b></li>
           <li><span>Режим работы</span><b data-contact-text="hours">Ежедневно 9:00–20:00</b></li>
         </ul>
@@ -490,8 +482,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
         <p>Позвоните или&nbsp;напишите&nbsp;— подскажем, с&nbsp;чего начать.</p>
         <div class="contact-buttons contact-buttons--row">
           <a class="cbtn cbtn--phone" data-contact="phone" href="tel:+79822279192"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><span><b>Позвонить</b></span></a>
-          <a class="cbtn cbtn--tg" data-contact="telegram" href="https://t.me/username" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg><span><b>Telegram</b></span></a>
-          <a class="cbtn cbtn--max" data-contact="max" href="https://max.ru/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15l-1.2 4.3c-.1.4.3.8.7.7l4.4-1.2A10 10 0 1 0 12 2zm4.6 13.8h-1.9v-4.6l-2 3h-1.3l-2-3v4.6H7.4V8.2h1.7l2.9 4.3 2.9-4.3h1.7z"/></svg><span><b>MAX</b></span></a>
+          <a class="cbtn cbtn--max" data-contact="max" href="https://max.ru/u/f9LHodD0cOI_EWlX5eczMRyrgtSB1MiPvnAlhKM8POfMxDiGiavjYpwFXmU" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15l-1.2 4.3c-.1.4.3.8.7.7l4.4-1.2A10 10 0 1 0 12 2zm4.6 13.8h-1.9v-4.6l-2 3h-1.3l-2-3v4.6H7.4V8.2h1.7l2.9 4.3 2.9-4.3h1.7z"/></svg><span><b>MAX</b></span></a>
         </div>
       </div>
     </div>
@@ -508,24 +499,20 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
 <!-- Плавающие кнопки для мобильных -->
 <div class="floating" aria-label="Быстрая связь">
   <a class="floating__btn cbtn--phone" data-contact="phone" href="tel:+79822279192" aria-label="Позвонить"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
-  <a class="floating__btn cbtn--tg" data-contact="telegram" href="https://t.me/username" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg></a>
-  <a class="floating__btn cbtn--max" data-contact="max" href="https://max.ru/" target="_blank" rel="noopener" aria-label="MAX"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.7 15l-1.2 4.3c-.1.4.3.8.7.7l4.4-1.2A10 10 0 1 0 12 2zm4.6 13.8h-1.9v-4.6l-2 3h-1.3l-2-3v4.6H7.4V8.2h1.7l2.9 4.3 2.9-4.3h1.7z"/></svg></a>
+  <a class="floating__btn cbtn--max" data-contact="max" href="https://max.ru/u/f9LHodD0cOI_EWlX5eczMRyrgtSB1MiPvnAlhKM8POfMxDiGiavjYpwFXmU" target="_blank" rel="noopener" aria-label="MAX"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.7 15l-1.2 4.3c-.1.4.3.8.7.7l4.4-1.2A10 10 0 1 0 12 2zm4.6 13.8h-1.9v-4.6l-2 3h-1.3l-2-3v4.6H7.4V8.2h1.7l2.9 4.3 2.9-4.3h1.7z"/></svg></a>
 </div>
 
 <script src="config.js"></script>
 <script>
 (function () {
   var C = window.SITE_CONFIG || {};
-  var tgUrl = C.telegram ? "https://t.me/" + C.telegram.replace(/^@/, "") : null;
 
   var links = {
     phone: C.phoneDial ? "tel:" + C.phoneDial : null,
-    telegram: tgUrl,
     max: C.maxUrl || null
   };
   var texts = {
     phone: C.phoneDisplay,
-    telegram: C.telegram ? "@" + C.telegram.replace(/^@/, "") : null,
     max: C.maxLabel,
     address: C.address,
     hours: C.hours
@@ -547,7 +534,7 @@ p, li, figcaption, summary, .service p { text-wrap: pretty; }
     return t;
   }
   if (texts.phone) texts.phone = texts.phone.replace(/\s+/g, "\u00a0");
-  ["telegram", "max", "address", "hours"].forEach(function (k) { texts[k] = typo(texts[k]); });
+  ["max", "address", "hours"].forEach(function (k) { texts[k] = typo(texts[k]); });
 
   document.querySelectorAll("[data-contact-text]").forEach(function (el) {
     var key = el.getAttribute("data-contact-text");

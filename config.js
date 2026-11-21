@@ -10,12 +10,9 @@ window.SITE_CONFIG = {
   phoneDisplay: "+7 (982) 227-91-92",
   phoneDial: "+79822279192",
 
-  // Telegram: имя пользователя или канала БЕЗ @
-  telegram: "username",
-
   // MAX: полная ссылка на ваш профиль или чат в MAX
   // (в приложении MAX: Профиль → Поделиться → Скопировать ссылку)
-  maxUrl: "https://max.ru/",
+  maxUrl: "https://max.ru/u/f9LHodD0cOI_EWlX5eczMRyrgtSB1MiPvnAlhKM8POfMxDiGiavjYpwFXmU",
   maxLabel: "Написать в MAX",
 
   address: "г. Город, ул. Набережная, 1",
