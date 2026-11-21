@@ -164,9 +164,9 @@ p, li, figcaption { text-wrap: pretty; }
 /* Works */
 #works { padding: clamp(2rem, 4vw, 3rem) 0; }
 #works .section__lead { margin-bottom: 1.5rem; }
-.works { display: grid; grid-template-columns: repeat(6, 1fr); gap: .8rem; }
+.works { display: grid; grid-template-columns: repeat(4, 1fr); gap: .9rem; }
 .boat { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
-.boat__slider { position: relative; aspect-ratio: 4 / 3; background: var(--bg-alt); overflow: hidden; }
+.boat__slider { position: relative; aspect-ratio: 16 / 10; background: var(--bg-alt); overflow: hidden; }
 .boat__track { position: absolute; inset: 0; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
 .boat__track::-webkit-scrollbar { display: none; }
 .boat__track img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start; cursor: zoom-in; }
@@ -177,9 +177,9 @@ p, li, figcaption { text-wrap: pretty; }
 .boat__count { position: absolute; right: 8px; bottom: 8px; background: rgba(7, 21, 34, .6); color: #fff; font-size: .78rem; font-weight: 700; padding: .15rem .5rem; border-radius: 999px; pointer-events: none; }
 .boat__info { padding: .9rem 1rem 1.1rem; }
 .boat__info h3 { font-size: .95rem; margin: 0 0 .35rem; }
-.boat__info p { margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.boat__info p { margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 @media (hover: none) { .boat__nav { opacity: 1; width: 30px; height: 30px; font-size: 1.2rem; } }
-@media (max-width: 1180px) { .works { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 1080px) { .works { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 760px) { .works { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) {
   .works { gap: .6rem; }
@@ -486,6 +486,26 @@ p, li, figcaption { text-wrap: pretty; }
           <div class="boat__info">
             <h3>Полное оснащение рыболовной лодки</h3>
             <p>Эхолоты Garmin и&nbsp;Humminbird на&nbsp;кронштейнах, светодиодные фары, монитор заряда, аккумуляторный отсек, блок предохранителей, отопитель, держатели удилищ с&nbsp;подсветкой.</p>
+          </div>
+        </article>
+        <article class="boat" data-photos="images/works/boat7-5.jpg,images/works/boat7-2.jpg,images/works/boat7-4.jpg,images/works/boat7-6.jpg,images/works/boat7-1.jpg,images/works/boat7-3.jpg,images/works/boat7-7.jpg">
+          <div class="boat__slider">
+            <div class="boat__track">
+              <img src="images/works/boat7-5-thumb.jpg" alt="Оснащение и акустика, фото 1" loading="lazy" data-index="0" width="640" height="480">
+              <img src="images/works/boat7-2-thumb.jpg" alt="Оснащение и акустика, фото 2" loading="lazy" data-index="1" width="640" height="480">
+              <img src="images/works/boat7-4-thumb.jpg" alt="Оснащение и акустика, фото 3" loading="lazy" data-index="2" width="640" height="480">
+              <img src="images/works/boat7-6-thumb.jpg" alt="Оснащение и акустика, фото 4" loading="lazy" data-index="3" width="640" height="480">
+              <img src="images/works/boat7-1-thumb.jpg" alt="Оснащение и акустика, фото 5" loading="lazy" data-index="4" width="640" height="480">
+              <img src="images/works/boat7-3-thumb.jpg" alt="Оснащение и акустика, фото 6" loading="lazy" data-index="5" width="640" height="480">
+              <img src="images/works/boat7-7-thumb.jpg" alt="Оснащение и акустика, фото 7" loading="lazy" data-index="6" width="640" height="480">
+            </div>
+            <button type="button" class="boat__nav boat__nav--prev" aria-label="Предыдущее фото">‹</button>
+            <button type="button" class="boat__nav boat__nav--next" aria-label="Следующее фото">›</button>
+            <span class="boat__count">1 / 7</span>
+          </div>
+          <div class="boat__info">
+            <h3>Оснащение и&nbsp;акустика</h3>
+            <p>Приборная панель с&nbsp;приборами и&nbsp;панелью переключателей, акустика, сиденья, звуковой сигнал, держатели удилищ, ходовые огни.</p>
           </div>
         </article>
       </div>
