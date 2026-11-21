@@ -35,6 +35,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
   margin: 0;
@@ -652,17 +653,22 @@ p, li, figcaption { text-wrap: pretty; }
   window.addEventListener("scroll", function () {
     header.classList.toggle("is-scrolled", window.scrollY > 10);
   }, { passive: true });
-  // Показ лодок по 4
+  // Показ лодок: первые 4, остальные по кнопке
   var boats = [].slice.call(document.querySelectorAll(".boat"));
   var moreBtn = document.getElementById("worksMore");
-  var shown = 4;
+  var expanded = false;
   function updateBoats() {
-    boats.forEach(function (b, i) { b.classList.toggle("is-hidden", i >= shown); });
-    var rest = boats.length - shown;
+    boats.forEach(function (b, i) { b.classList.toggle("is-hidden", !expanded && i >= 4); });
+    var rest = boats.length - 4;
     moreBtn.hidden = rest <= 0;
-    moreBtn.textContent = "Показать ещё " + Math.min(4, rest);
+    moreBtn.textContent = expanded ? "Свернуть" : "Показать ещё " + rest;
+    moreBtn.setAttribute("aria-expanded", expanded);
   }
-  moreBtn.addEventListener("click", function () { shown += 4; updateBoats(); });
+  moreBtn.addEventListener("click", function () {
+    expanded = !expanded;
+    updateBoats();
+    if (!expanded) document.getElementById("works").scrollIntoView({ behavior: "smooth" });
+  });
   updateBoats();
 
   // Галерея работ
