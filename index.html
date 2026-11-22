@@ -176,7 +176,10 @@ p, li, figcaption { text-wrap: pretty; }
 .svc ul, .adv ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
 .svc li, .adv li { position: relative; padding-left: 1.6rem; font-size: .95rem; line-height: 1.45; }
 .svc li::before, .adv li::before { content: ""; position: absolute; left: 0; top: .2em; width: 1rem; height: 1rem; border-radius: 50%; background: var(--aqua-dark) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat; }
-.svc-note { margin: 1.2rem 0 0; color: var(--muted); font-size: .92rem; }
+.svc-note { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; background: var(--bg-alt); border-radius: var(--radius); padding: 1.1rem 1.5rem; }
+.svc-note .svc__icon { margin: 0; flex: none; }
+.svc-note h3 { font-size: 1.12rem; margin: 0 0 .15rem; }
+.svc-note p { margin: 0; font-size: .95rem; }
 .adv { margin-top: 2rem; padding: 1.6rem 1.8rem; border: 1px solid var(--line); border-radius: var(--radius); }
 .adv h3 { font-size: 1.25rem; margin: 0 0 1rem; }
 .adv ul { grid-template-columns: repeat(2, 1fr); column-gap: 2rem; }
@@ -445,7 +448,10 @@ p, li, figcaption { text-wrap: pretty; }
           </ul>
         </article>
       </div>
-      <p class="svc-note">Демонтаж старого оборудования&nbsp;— 50% от&nbsp;стоимости установки нового, без&nbsp;расходных материалов</p>
+      <div class="svc-note">
+        <div class="svc__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v5M14 11v5"/></svg></div>
+        <div><h3>Демонтаж старого оборудования</h3><p>50% от&nbsp;стоимости установки нового, без&nbsp;расходных материалов</p></div>
+      </div>
       <div class="adv">
         <h3>Наши преимущества</h3>
         <ul>
