@@ -24,3 +24,6 @@
 python3 tools/build_portfolio.py
 ```
 Лодки, которые должны быть только в портфолио (не на главной), перечислены в `tools/portfolio_extra.json`.
+
+## Домен
+Сайт подключён к домену `boat-service-surgut.ru` (файл `CNAME`). DNS в reg.ru: 4 записи A для `@` на 185.199.108–111.153 и CNAME `www` → `the-yaks.github.io`.
