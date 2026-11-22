@@ -2,6 +2,12 @@
 import re, html
 s = open('index.html').read()
 boats = re.findall(r'<article class="boat" data-photos="([^"]+)">.*?<h3>(.*?)</h3>\s*<p>(.*?)</p>', s, re.S)
+# Лодки только для портфолио (на главной их нет)
+import json, os
+extra_path = os.path.join(os.path.dirname(__file__), 'portfolio_extra.json')
+if os.path.exists(extra_path):
+    for b in json.load(open(extra_path)):
+        boats.append((','.join(b['photos']), b['title'], b['desc']))
 
 head_end = s.index('<main>')
 head = s[:head_end]

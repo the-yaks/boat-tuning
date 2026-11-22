@@ -23,3 +23,4 @@
 ```bash
 python3 tools/build_portfolio.py
 ```
+Лодки, которые должны быть только в портфолио (не на главной), перечислены в `tools/portfolio_extra.json`.
