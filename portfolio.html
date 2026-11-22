@@ -128,6 +128,10 @@ p, li, figcaption { text-wrap: pretty; }
 .lead { font-size: clamp(1.02rem, 1.6vw, 1.2rem); color: var(--muted); max-width: 38rem; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: .8rem; margin: 2rem 0 0; }
 
+.hero__reviews { display: inline-flex; align-items: center; gap: .6rem; margin-top: 1.4rem; padding: .55rem 1rem; border-radius: 999px; background: #fff; border: 1px solid var(--line); text-decoration: none; font-size: .95rem; color: var(--ink); transition: border-color .2s, box-shadow .2s; }
+.hero__reviews:hover { border-color: #00aaff; box-shadow: 0 6px 18px rgba(0, 170, 255, .15); }
+.hero__reviews b { color: #00aaff; }
+.hero__stars { color: var(--sun); letter-spacing: .05em; }
 .hero__card {
   background: #fff;
   border: 1px solid var(--line);
@@ -236,26 +240,12 @@ p, li, figcaption { text-wrap: pretty; }
   .lightbox__prev, .lightbox__next { top: auto; bottom: 8px; transform: none; }
 }
 
-/* Reviews */
-#reviews { padding: clamp(2.5rem, 5vw, 4rem) 0; }
-.reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
-.reviews:empty { display: none; }
-.review { background: var(--bg-alt); border: 1px solid transparent; border-radius: var(--radius); padding: 1.3rem 1.4rem; display: flex; flex-direction: column; gap: .6rem; }
-.review__stars { color: var(--sun); letter-spacing: .1em; font-size: 1.05rem; }
-.review p { margin: 0; }
-.review__meta { margin-top: auto; color: var(--muted); font-size: .85rem; }
-.reviews__cta { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.5rem; margin-top: 1.5rem; }
-.reviews__cta p { margin: 0; color: var(--muted); }
-.btn--avito { background: #00aaff; color: #fff; }
-@media (max-width: 960px) { .reviews { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .reviews { grid-template-columns: 1fr; } }
-
 /* Contacts */
 #contacts { padding: clamp(2.5rem, 5vw, 4rem) 0; }
 .ccards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; }
-.ccard { display: flex; flex-direction: column; gap: .35rem; padding: 1.4rem; background: #fff; border: 1px solid transparent; border-radius: var(--radius); text-decoration: none; color: var(--ink); }
+.ccard { display: flex; flex-direction: column; gap: .35rem; padding: 1.4rem; background: var(--bg-alt); border: 1px solid transparent; border-radius: var(--radius); text-decoration: none; color: var(--ink); }
 .ccard--link { transition: transform .15s, box-shadow .2s, border-color .2s, background .2s; }
-.ccard--link:hover { transform: translateY(-3px); border-color: var(--line); box-shadow: var(--shadow); }
+.ccard--link:hover { transform: translateY(-3px); background: #fff; border-color: var(--line); box-shadow: var(--shadow); }
 .ccard__icon { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; color: #fff; margin-bottom: .6rem; }
 .ccard__icon svg { width: 24px; height: 24px; fill: currentColor; }
 .ccard__icon--phone { background: var(--phone); }
@@ -326,7 +316,6 @@ p, li, figcaption { text-wrap: pretty; }
     <nav class="nav" id="nav">
       <a href="index.html#works">Работы</a>
       <a href="portfolio.html" class="is-active" aria-current="page">Портфолио</a>
-      <a href="index.html#reviews">Отзывы</a>
       <a href="#contacts">Контакты</a>
     </nav>
     <a class="header__phone" data-contact="phone" href="tel:+79822279192" aria-label="Позвонить: +7 (982) 227-91-92" title="+7 (982) 227-91-92"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
@@ -572,7 +561,7 @@ p, li, figcaption { text-wrap: pretty; }
   </div>
 
   <!-- CONTACTS -->
-  <section class="section section--dark" id="contacts">
+  <section class="section" id="contacts">
     <div class="container">
       <h2 class="section__title">Контакты</h2>
       <div class="ccards">
