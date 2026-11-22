@@ -259,10 +259,18 @@ p, li, figcaption { text-wrap: pretty; }
   .lightbox__prev, .lightbox__next { top: auto; bottom: 8px; transform: none; }
 }
 
+/* Workshop */
+.ws { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }
+.ws__item { position: relative; padding: 0; border: 0; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; background: var(--bg-alt); cursor: zoom-in; font: inherit; }
+.ws__item img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.ws__item:hover img { transform: scale(1.04); }
+.ws__item span { position: absolute; left: 0; right: 0; bottom: 0; padding: 2rem 1rem .8rem; text-align: left; color: #fff; font-weight: 700; font-size: .95rem; line-height: 1.3; background: linear-gradient(transparent, rgba(7, 21, 34, .75)); }
+@media (max-width: 760px) { .ws { grid-template-columns: 1fr 1fr; gap: .5rem; } .ws__item span { font-size: .8rem; padding: 1.5rem .6rem .5rem; } }
+
 /* Contacts */
 #contacts { padding: clamp(2.5rem, 5vw, 4rem) 0; }
 .ccards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; }
-.ccard { display: flex; flex-direction: column; gap: .35rem; padding: 1.4rem; background: var(--bg-alt); border: 1px solid transparent; border-radius: var(--radius); text-decoration: none; color: var(--ink); }
+.ccard { display: flex; flex-direction: column; gap: .35rem; padding: 1.4rem; background: #fff; border: 1px solid transparent; border-radius: var(--radius); text-decoration: none; color: var(--ink); }
 .ccard--link { transition: transform .15s, box-shadow .2s, border-color .2s, background .2s; }
 .ccard--link:hover { transform: translateY(-3px); background: #fff; border-color: var(--line); box-shadow: var(--shadow); }
 .ccard__icon { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; color: #fff; margin-bottom: .6rem; }
@@ -336,6 +344,7 @@ p, li, figcaption { text-wrap: pretty; }
       <a href="#services">Услуги</a>
       <a href="#works">Работы</a>
       <a href="portfolio.html">Портфолио</a>
+      <a href="#workshop">Мастерская</a>
       <a href="#contacts">Контакты</a>
     </nav>
     <a class="header__phone" data-contact="phone" href="tel:+79822279192" aria-label="Позвонить: +7 (982) 227-91-92" title="+7 (982) 227-91-92"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
@@ -696,8 +705,27 @@ p, li, figcaption { text-wrap: pretty; }
     </div>
   </section>
 
+  <!-- WORKSHOP -->
+  <section class="section" id="workshop">
+    <div class="container">
+      <h2 class="section__title">Наша мастерская</h2>
+      <p class="section__lead">Работаем на&nbsp;профессиональном оборудовании, панели кнопок и&nbsp;таблички делаем сами</p>
+      <div class="ws js-gallery" data-photos="images/equipment/eq-6.jpg,images/equipment/eq-8.jpg,images/equipment/eq-9.jpg,images/equipment/eq-5.jpg,images/equipment/eq-4.jpg,images/equipment/eq-2.jpg,images/equipment/eq-7.jpg,images/equipment/eq-3.jpg,images/equipment/eq-1.jpg">
+        <button type="button" class="ws__item" data-index="0"><img src="images/equipment/eq-6-thumb.jpg" alt="Рабочее место и инструмент" loading="lazy" width="640" height="480"><span>Рабочее место и&nbsp;инструмент</span></button>
+        <button type="button" class="ws__item" data-index="1"><img src="images/equipment/eq-8-thumb.jpg" alt="Токарный станок с цифровой индикацией" loading="lazy" width="640" height="480"><span>Токарный станок с&nbsp;цифровой индикацией</span></button>
+        <button type="button" class="ws__item" data-index="2"><img src="images/equipment/eq-9-thumb.jpg" alt="Лазерный гравёр ACMER для табличек и панелей" loading="lazy" width="640" height="480"><span>Лазерный гравёр ACMER для&nbsp;табличек и&nbsp;панелей</span></button>
+        <button type="button" class="ws__item" data-index="3"><img src="images/equipment/eq-5-thumb.jpg" alt="Сварочное оборудование" loading="lazy" width="640" height="480"><span>Сварочное оборудование</span></button>
+        <button type="button" class="ws__item" data-index="4"><img src="images/equipment/eq-4-thumb.jpg" alt="Компрессор Nordberg" loading="lazy" width="640" height="480"><span>Компрессор Nordberg</span></button>
+        <button type="button" class="ws__item" data-index="5"><img src="images/equipment/eq-2-thumb.jpg" alt="Гидравлический пресс Nordberg" loading="lazy" width="640" height="480"><span>Гидравлический пресс Nordberg</span></button>
+        <button type="button" class="ws__item" data-index="6"><img src="images/equipment/eq-7-thumb.jpg" alt="Заточной и шлифовальный станки" loading="lazy" width="640" height="480"><span>Заточной и&nbsp;шлифовальный станки</span></button>
+        <button type="button" class="ws__item" data-index="7"><img src="images/equipment/eq-3-thumb.jpg" alt="Ручная таль на 2 т" loading="lazy" width="640" height="480"><span>Ручная таль на&nbsp;2&nbsp;т</span></button>
+        <button type="button" class="ws__item" data-index="8"><img src="images/equipment/eq-1-thumb.jpg" alt="Строительный пылесос Kärcher" loading="lazy" width="640" height="480"><span>Строительный пылесос Kärcher</span></button>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACTS -->
-  <section class="section" id="contacts">
+  <section class="section section--dark" id="contacts">
     <div class="container">
       <h2 class="section__title">Контакты</h2>
       <div class="ccards">
@@ -914,7 +942,7 @@ window.SITE_CONFIG = {
       if (el) openLb(list, +el.getAttribute("data-index"));
     });
   });
-  document.querySelectorAll(".pf-boat").forEach(function (sec) {
+  document.querySelectorAll(".pf-boat, .js-gallery").forEach(function (sec) {
     var list = sec.getAttribute("data-photos").split(",");
     sec.addEventListener("click", function (e) {
       var b = e.target.closest("[data-index]");

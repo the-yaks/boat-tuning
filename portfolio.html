@@ -259,10 +259,18 @@ p, li, figcaption { text-wrap: pretty; }
   .lightbox__prev, .lightbox__next { top: auto; bottom: 8px; transform: none; }
 }
 
+/* Workshop */
+.ws { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; }
+.ws__item { position: relative; padding: 0; border: 0; border-radius: var(--radius); overflow: hidden; aspect-ratio: 4 / 3; background: var(--bg-alt); cursor: zoom-in; font: inherit; }
+.ws__item img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.ws__item:hover img { transform: scale(1.04); }
+.ws__item span { position: absolute; left: 0; right: 0; bottom: 0; padding: 2rem 1rem .8rem; text-align: left; color: #fff; font-weight: 700; font-size: .95rem; line-height: 1.3; background: linear-gradient(transparent, rgba(7, 21, 34, .75)); }
+@media (max-width: 760px) { .ws { grid-template-columns: 1fr 1fr; gap: .5rem; } .ws__item span { font-size: .8rem; padding: 1.5rem .6rem .5rem; } }
+
 /* Contacts */
 #contacts { padding: clamp(2.5rem, 5vw, 4rem) 0; }
 .ccards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; }
-.ccard { display: flex; flex-direction: column; gap: .35rem; padding: 1.4rem; background: var(--bg-alt); border: 1px solid transparent; border-radius: var(--radius); text-decoration: none; color: var(--ink); }
+.ccard { display: flex; flex-direction: column; gap: .35rem; padding: 1.4rem; background: #fff; border: 1px solid transparent; border-radius: var(--radius); text-decoration: none; color: var(--ink); }
 .ccard--link { transition: transform .15s, box-shadow .2s, border-color .2s, background .2s; }
 .ccard--link:hover { transform: translateY(-3px); background: #fff; border-color: var(--line); box-shadow: var(--shadow); }
 .ccard__icon { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; color: #fff; margin-bottom: .6rem; }
@@ -336,6 +344,7 @@ p, li, figcaption { text-wrap: pretty; }
       <a href="index.html#services">Услуги</a>
       <a href="index.html#works">Работы</a>
       <a href="portfolio.html" class="is-active" aria-current="page">Портфолио</a>
+      <a href="index.html#workshop">Мастерская</a>
       <a href="#contacts">Контакты</a>
     </nav>
     <a class="header__phone" data-contact="phone" href="tel:+79822279192" aria-label="Позвонить: +7 (982) 227-91-92" title="+7 (982) 227-91-92"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
@@ -581,7 +590,7 @@ p, li, figcaption { text-wrap: pretty; }
   </div>
 
   <!-- CONTACTS -->
-  <section class="section" id="contacts">
+  <section class="section section--dark" id="contacts">
     <div class="container">
       <h2 class="section__title">Контакты</h2>
       <div class="ccards">
@@ -798,7 +807,7 @@ window.SITE_CONFIG = {
       if (el) openLb(list, +el.getAttribute("data-index"));
     });
   });
-  document.querySelectorAll(".pf-boat").forEach(function (sec) {
+  document.querySelectorAll(".pf-boat, .js-gallery").forEach(function (sec) {
     var list = sec.getAttribute("data-photos").split(",");
     sec.addEventListener("click", function (e) {
       var b = e.target.closest("[data-index]");
