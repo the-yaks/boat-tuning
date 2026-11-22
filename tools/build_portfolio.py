@@ -14,6 +14,7 @@ head = s[:head_end]
 head = head.replace('<title>Tuning Boat Service Surgut — тюнинг лодок и катеров в Сургуте</title>',
                     '<title>Портфолио — Tuning Boat Service Surgut</title>')
 head = head.replace('<a href="#works">Работы</a>', '<a href="index.html#works">Работы</a>')
+head = head.replace('<a href="#reviews">Отзывы</a>', '<a href="index.html#reviews">Отзывы</a>')
 head = head.replace('<a href="portfolio.html">Портфолио</a>', '<a href="portfolio.html" class="is-active" aria-current="page">Портфолио</a>')
 head = head.replace('<a href="#top" class="logo"', '<a href="index.html" class="logo"')
 
