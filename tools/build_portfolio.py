@@ -17,6 +17,10 @@ head = head.replace('<a href="#works">Работы</a>', '<a href="index.html#wo
 head = head.replace('<a href="#workshop">Мастерская</a>', '<a href="index.html#workshop">Мастерская</a>')
 head = head.replace('<a href="#services">Услуги</a>', '<a href="index.html#services">Услуги</a>')
 head = head.replace('<a href="portfolio.html">Портфолио</a>', '<a href="portfolio.html" class="is-active" aria-current="page">Портфолио</a>')
+head = head.replace('<link rel="canonical" href="https://boat-service-surgut.ru/">', '<link rel="canonical" href="https://boat-service-surgut.ru/portfolio.html">')
+head = head.replace('<meta property="og:url" content="https://boat-service-surgut.ru/">', '<meta property="og:url" content="https://boat-service-surgut.ru/portfolio.html">')
+head = re.sub(r'<meta name="description" content="[^"]*">', '<meta name="description" content="Портфолио Tuning Boat Service Surgut: фото лодок и катеров после установки эхолотов, электромоторов, проводки и другого оборудования в Сургуте.">', head, count=1)
+head = re.sub(r'  <script type="application/ld\+json">.*?</script>\n', '', head, count=1, flags=re.S)
 head = head.replace('<a href="#top" class="logo"', '<a href="index.html" class="logo"')
 
 nav = ''.join('        <a href="#boat-%d">%s</a>\n' % (i + 1, h3) for i, (_, h3, _) in enumerate(boats))

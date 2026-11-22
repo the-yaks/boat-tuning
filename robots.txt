@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://boat-service-surgut.ru/sitemap.xml
