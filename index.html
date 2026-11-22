@@ -173,7 +173,13 @@ p, li, figcaption { text-wrap: pretty; }
 .boat__slider { position: relative; aspect-ratio: 16 / 10; background: var(--bg-alt); overflow: hidden; }
 .boat__track { position: absolute; inset: 0; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
 .boat__track::-webkit-scrollbar { display: none; }
-.boat__track img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start; cursor: zoom-in; }
+.boat__track > img, .boat__slide { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start; cursor: zoom-in; }
+.boat__slide { position: relative; display: block; }
+.boat__slide img { width: 100%; height: 100%; object-fit: cover; }
+.play { position: absolute; left: 50%; top: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px; border-radius: 50%; background: rgba(7, 21, 34, .6); pointer-events: none; }
+.play::after { content: ""; position: absolute; left: 22px; top: 17px; border-style: solid; border-width: 11px 0 11px 18px; border-color: transparent transparent transparent #fff; }
+.pf-grid button { position: relative; }
+.lightbox video { max-width: 92vw; max-height: 84vh; border-radius: 8px; background: #000; }
 .boat__nav { position: absolute; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .9); color: var(--ink); font-size: 1.4rem; line-height: 1; cursor: pointer; display: grid; place-items: center; box-shadow: 0 2px 8px rgba(0, 0, 0, .2); opacity: 0; transition: opacity .2s; }
 .boat__nav--prev { left: 8px; }
 .boat__nav--next { right: 8px; }
@@ -381,29 +387,31 @@ p, li, figcaption { text-wrap: pretty; }
             <p>Новая проводка и&nbsp;панели переключателей, установка приборов и&nbsp;картплоттера, аккумуляторный отсек, держатели удилищ, освещение</p>
           </div>
         </article>
-        <article class="boat" data-photos="images/works/boat2-9.jpg,images/works/boat2-1.jpg,images/works/boat2-12.jpg,images/works/boat2-16.jpg,images/works/boat2-4.jpg,images/works/boat2-2.jpg,images/works/boat2-3.jpg,images/works/boat2-5.jpg,images/works/boat2-6.jpg,images/works/boat2-7.jpg,images/works/boat2-8.jpg,images/works/boat2-10.jpg,images/works/boat2-11.jpg,images/works/boat2-13.jpg,images/works/boat2-14.jpg,images/works/boat2-15.jpg">
+        <article class="boat" data-photos="images/works/boat2-9.jpg,images/works/boat2-video1.mp4,images/works/boat2-video2.mp4,images/works/boat2-1.jpg,images/works/boat2-12.jpg,images/works/boat2-16.jpg,images/works/boat2-4.jpg,images/works/boat2-2.jpg,images/works/boat2-3.jpg,images/works/boat2-5.jpg,images/works/boat2-6.jpg,images/works/boat2-7.jpg,images/works/boat2-8.jpg,images/works/boat2-10.jpg,images/works/boat2-11.jpg,images/works/boat2-13.jpg,images/works/boat2-14.jpg,images/works/boat2-15.jpg">
           <div class="boat__slider">
             <div class="boat__track">
               <img src="images/works/boat2-9-thumb.jpg" alt="Доработка лодки «Салют», фото 1" loading="lazy" data-index="0" width="640" height="480">
-              <img src="images/works/boat2-1-thumb.jpg" alt="Доработка лодки «Салют», фото 2" loading="lazy" data-index="1" width="640" height="480">
-              <img src="images/works/boat2-12-thumb.jpg" alt="Доработка лодки «Салют», фото 3" loading="lazy" data-index="2" width="640" height="480">
-              <img src="images/works/boat2-16-thumb.jpg" alt="Доработка лодки «Салют», фото 4" loading="lazy" data-index="3" width="640" height="480">
-              <img src="images/works/boat2-4-thumb.jpg" alt="Доработка лодки «Салют», фото 5" loading="lazy" data-index="4" width="640" height="480">
-              <img src="images/works/boat2-2-thumb.jpg" alt="Доработка лодки «Салют», фото 6" loading="lazy" data-index="5" width="640" height="480">
-              <img src="images/works/boat2-3-thumb.jpg" alt="Доработка лодки «Салют», фото 7" loading="lazy" data-index="6" width="640" height="480">
-              <img src="images/works/boat2-5-thumb.jpg" alt="Доработка лодки «Салют», фото 8" loading="lazy" data-index="7" width="640" height="480">
-              <img src="images/works/boat2-6-thumb.jpg" alt="Доработка лодки «Салют», фото 9" loading="lazy" data-index="8" width="640" height="480">
-              <img src="images/works/boat2-7-thumb.jpg" alt="Доработка лодки «Салют», фото 10" loading="lazy" data-index="9" width="640" height="480">
-              <img src="images/works/boat2-8-thumb.jpg" alt="Доработка лодки «Салют», фото 11" loading="lazy" data-index="10" width="640" height="480">
-              <img src="images/works/boat2-10-thumb.jpg" alt="Доработка лодки «Салют», фото 12" loading="lazy" data-index="11" width="640" height="480">
-              <img src="images/works/boat2-11-thumb.jpg" alt="Доработка лодки «Салют», фото 13" loading="lazy" data-index="12" width="640" height="480">
-              <img src="images/works/boat2-13-thumb.jpg" alt="Доработка лодки «Салют», фото 14" loading="lazy" data-index="13" width="640" height="480">
-              <img src="images/works/boat2-14-thumb.jpg" alt="Доработка лодки «Салют», фото 15" loading="lazy" data-index="14" width="640" height="480">
-              <img src="images/works/boat2-15-thumb.jpg" alt="Доработка лодки «Салют», фото 16" loading="lazy" data-index="15" width="640" height="480">
+              <span class="boat__slide boat__slide--video" data-index="1"><img src="images/works/boat2-video1-thumb.jpg" alt="Доработка лодки «Салют», видео" loading="lazy" width="640" height="360"><i class="play" aria-hidden="true"></i></span>
+              <span class="boat__slide boat__slide--video" data-index="2"><img src="images/works/boat2-video2-thumb.jpg" alt="Доработка лодки «Салют», видео" loading="lazy" width="640" height="360"><i class="play" aria-hidden="true"></i></span>
+              <img src="images/works/boat2-1-thumb.jpg" alt="Доработка лодки «Салют», фото 4" loading="lazy" data-index="3" width="640" height="480">
+              <img src="images/works/boat2-12-thumb.jpg" alt="Доработка лодки «Салют», фото 5" loading="lazy" data-index="4" width="640" height="480">
+              <img src="images/works/boat2-16-thumb.jpg" alt="Доработка лодки «Салют», фото 6" loading="lazy" data-index="5" width="640" height="480">
+              <img src="images/works/boat2-4-thumb.jpg" alt="Доработка лодки «Салют», фото 7" loading="lazy" data-index="6" width="640" height="480">
+              <img src="images/works/boat2-2-thumb.jpg" alt="Доработка лодки «Салют», фото 8" loading="lazy" data-index="7" width="640" height="480">
+              <img src="images/works/boat2-3-thumb.jpg" alt="Доработка лодки «Салют», фото 9" loading="lazy" data-index="8" width="640" height="480">
+              <img src="images/works/boat2-5-thumb.jpg" alt="Доработка лодки «Салют», фото 10" loading="lazy" data-index="9" width="640" height="480">
+              <img src="images/works/boat2-6-thumb.jpg" alt="Доработка лодки «Салют», фото 11" loading="lazy" data-index="10" width="640" height="480">
+              <img src="images/works/boat2-7-thumb.jpg" alt="Доработка лодки «Салют», фото 12" loading="lazy" data-index="11" width="640" height="480">
+              <img src="images/works/boat2-8-thumb.jpg" alt="Доработка лодки «Салют», фото 13" loading="lazy" data-index="12" width="640" height="480">
+              <img src="images/works/boat2-10-thumb.jpg" alt="Доработка лодки «Салют», фото 14" loading="lazy" data-index="13" width="640" height="480">
+              <img src="images/works/boat2-11-thumb.jpg" alt="Доработка лодки «Салют», фото 15" loading="lazy" data-index="14" width="640" height="480">
+              <img src="images/works/boat2-13-thumb.jpg" alt="Доработка лодки «Салют», фото 16" loading="lazy" data-index="15" width="640" height="480">
+              <img src="images/works/boat2-14-thumb.jpg" alt="Доработка лодки «Салют», фото 17" loading="lazy" data-index="16" width="640" height="480">
+              <img src="images/works/boat2-15-thumb.jpg" alt="Доработка лодки «Салют», фото 18" loading="lazy" data-index="17" width="640" height="480">
             </div>
             <button type="button" class="boat__nav boat__nav--prev" aria-label="Предыдущее фото">‹</button>
             <button type="button" class="boat__nav boat__nav--next" aria-label="Следующее фото">›</button>
-            <span class="boat__count">1 / 16</span>
+            <span class="boat__count">1 / 18</span>
           </div>
           <div class="boat__info">
             <h3>Доработка лодки «Салют»</h3>
@@ -614,6 +622,7 @@ p, li, figcaption { text-wrap: pretty; }
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото">
   <img alt="">
+  <video controls playsinline preload="none" hidden></video>
   <button type="button" class="lightbox__close" aria-label="Закрыть">✕</button>
   <button type="button" class="lightbox__prev" aria-label="Предыдущее фото">‹</button>
   <button type="button" class="lightbox__next" aria-label="Следующее фото">›</button>
@@ -729,13 +738,27 @@ p, li, figcaption { text-wrap: pretty; }
   var lb = document.getElementById("lightbox");
   var lbImg = lb.querySelector("img"), lbCount = lb.querySelector(".lightbox__count");
   var photos = [], cur = 0, touchX = null;
+  var lbVid = lb.querySelector("video");
+  function isVideo(src) { return /\.mp4$/i.test(src); }
   function show(i) {
     cur = (i + photos.length) % photos.length;
-    lbImg.src = photos[cur];
+    var src = photos[cur];
+    lbVid.pause();
+    if (isVideo(src)) {
+      lbImg.hidden = true; lbVid.hidden = false;
+      lbVid.src = src; lbVid.play().catch(function () {});
+    } else {
+      lbVid.hidden = true; lbVid.removeAttribute("src"); lbVid.load();
+      lbImg.hidden = false; lbImg.src = src;
+    }
     lbCount.textContent = (cur + 1) + " / " + photos.length;
-    new Image().src = photos[(cur + 1) % photos.length];
+    var next = photos[(cur + 1) % photos.length];
+    if (!isVideo(next)) new Image().src = next;
   }
-  function closeLb() { lb.classList.remove("is-open"); document.body.style.overflow = ""; }
+  function closeLb() {
+    lb.classList.remove("is-open"); document.body.style.overflow = "";
+    lbVid.pause();
+  }
   function openLb(list, i) {
     photos = list; show(i);
     lb.classList.add("is-open"); document.body.style.overflow = "hidden";
@@ -753,7 +776,8 @@ p, li, figcaption { text-wrap: pretty; }
     card.querySelector(".boat__nav--prev").addEventListener("click", function () { go(idx() - 1); });
     card.querySelector(".boat__nav--next").addEventListener("click", function () { go(idx() + 1); });
     track.addEventListener("click", function (e) {
-      if (e.target.tagName === "IMG") openLb(list, +e.target.getAttribute("data-index"));
+      var el = e.target.closest("[data-index]");
+      if (el) openLb(list, +el.getAttribute("data-index"));
     });
   });
   document.querySelectorAll(".pf-boat").forEach(function (sec) {

@@ -22,16 +22,23 @@ secs = ''
 for i, (photos, h3, p) in enumerate(boats):
     lst = photos.split(',')
     alt = html.unescape(h3).replace('\xa0', ' ')
-    btns = ''.join('          <button type="button" data-index="%d" aria-label="Открыть фото %d"><img src="%s" alt="%s, фото %d" loading="lazy" width="640" height="480"></button>\n'
-                   % (j, j + 1, f.replace('.jpg', '-thumb.jpg'), alt, j + 1) for j, f in enumerate(lst))
+    def thumb(f): return re.sub(r'\.(jpg|mp4)$', '-thumb.jpg', f)
+    btns = ''
+    for j, f in enumerate(lst):
+        if f.endswith('.mp4'):
+            btns += '          <button type="button" data-index="%d" aria-label="Смотреть видео"><img src="%s" alt="%s, видео" loading="lazy" width="640" height="360"><i class="play" aria-hidden="true"></i></button>\n' % (j, thumb(f), alt)
+        else:
+            btns += '          <button type="button" data-index="%d" aria-label="Открыть фото %d"><img src="%s" alt="%s, фото %d" loading="lazy" width="640" height="480"></button>\n' % (j, j + 1, thumb(f), alt, j + 1)
+    nvid = sum(f.endswith('.mp4') for f in lst)
+    count = '%d&nbsp;фото' % (len(lst) - nvid) + (' · %d&nbsp;видео' % nvid if nvid else '')
     secs += '''      <section class="pf-boat" id="boat-%d" data-photos="%s">
-        <span class="pf-boat__count">%d&nbsp;фото</span>
+        <span class="pf-boat__count">%s</span>
         <h2>%s</h2>
         <p>%s</p>
         <div class="pf-grid">
 %s        </div>
       </section>
-''' % (i + 1, photos, len(lst), h3, p, btns)
+''' % (i + 1, photos, count, h3, p, btns)
 
 contacts = s[s.index('  <!-- CONTACTS -->'):s.index('</main>')]
 main = '''<main>
