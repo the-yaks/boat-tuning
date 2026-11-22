@@ -15,6 +15,6 @@ window.SITE_CONFIG = {
   maxUrl: "https://max.ru/u/f9LHodD0cOI_EWlX5eczMRyrgtSB1MiPvnAlhKM8POfMxDiGiavjYpwFXmU",
   maxLabel: "Написать в MAX",
 
-  address: "г. Сургут",
+  address: "г. Сургут, Центральный район",
   hours: "С 9:00 до 18:00, по предварительной записи"
 };
