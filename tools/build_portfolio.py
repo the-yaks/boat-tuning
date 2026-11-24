@@ -11,8 +11,8 @@ if os.path.exists(extra_path):
 
 head_end = s.index('<main>')
 head = s[:head_end]
-head = head.replace('<title>Tuning Boat Service Surgut — тюнинг лодок и катеров в Сургуте</title>',
-                    '<title>Портфолио — Tuning Boat Service Surgut</title>')
+head = head.replace('<title>Лодочный сервис в Сургуте — тюнинг лодок и катеров | Tuning Boat Service Surgut</title>',
+                    '<title>Портфолио — лодочный сервис Tuning Boat Service Surgut</title>')
 head = head.replace('<a href="#works">Работы</a>', '<a href="index.html#works">Работы</a>')
 head = head.replace('<a href="#workshop">Мастерская</a>', '<a href="index.html#workshop">Мастерская</a>')
 head = head.replace('<a href="#services">Услуги</a>', '<a href="index.html#services">Услуги</a>')
